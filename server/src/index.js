@@ -9,12 +9,9 @@ const PORT = process.env.PORT || 3000;
 // middlewares
 app.use(corsMiddleware);
 
-
 // routes
 app.get("/", (req, res) => {
   res.send("Welcome To KrishiNET");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log("Server is running.."));
