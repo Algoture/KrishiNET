@@ -6,7 +6,6 @@ const ContractForm = () => {
   const [cropType, setCropType] = useState("");
   const [quantity, setQuantity] = useState("");
   const [pricePerKg, setPricePerKg] = useState("");
-
   const handleCreateContract = async () => {
     const contract = {
       cropType,
@@ -19,7 +18,7 @@ const ContractForm = () => {
   };
 
   return (
-    <form className="flex flex-col gap-2 w-fit">
+    <form className="flex flex-col gap-2 w-fit ml-2">
       <InputLabel>Crop Type</InputLabel>
       <Select
         label="Crop Type"
@@ -40,7 +39,11 @@ const ContractForm = () => {
         value={pricePerKg}
         onChange={(e) => setPricePerKg(e.target.value)}
       />
-      <Button onClick={handleCreateContract} variant="contained">
+      <Button
+        onClick={handleCreateContract}
+        variant="contained"
+        sx={{ backgroundColor: "#7bf1a8", borderRadius: "5px",color:"black" }}
+      >
         Create Contract
       </Button>
     </form>
