@@ -1,8 +1,12 @@
+import HomePage from "./pages/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <>
-      <h1>Welcome To KrishiNET</h1>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 
