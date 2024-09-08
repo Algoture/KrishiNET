@@ -14,21 +14,15 @@ const ContractForm = () => {
       status: "open",
       createdAt: new Date().toISOString(),
     };
-    await firebaseAuth.firestore().collection("contracts").add(contract);
   };
 
   return (
-    <form className="flex flex-col gap-2 w-fit ml-2">
-      <InputLabel>Crop Type</InputLabel>
-      <Select
-        label="Crop Type"
+    <form className="flex gap-2 w-fit ml-2 mt-2">
+      <TextField
+        label="Crop Name"
         value={cropType}
         onChange={(e) => setCropType(e.target.value)}
-      >
-        <MenuItem value={10}>Wheat</MenuItem>
-        <MenuItem value={20}>Fruits</MenuItem>
-        <MenuItem value={30}>Vegetables</MenuItem>
-      </Select>
+      />
       <TextField
         label="Quantity (kg)"
         value={quantity}
