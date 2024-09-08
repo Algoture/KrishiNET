@@ -1,4 +1,4 @@
-import { TextField, Button, Select, MenuItem, InputLabel } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import "../style/index.css";
 import { firebaseAuth } from "../utils/firebase";
