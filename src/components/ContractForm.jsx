@@ -1,7 +1,6 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import "../style/index.css";
-import { firebaseAuth } from "../utils/firebase";
 const ContractForm = () => {
   const [cropType, setCropType] = useState("");
   const [quantity, setQuantity] = useState("");
