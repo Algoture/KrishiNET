@@ -7,13 +7,19 @@ const HomePage = () => {
       <div className="flex gap-4 mt-4">
         <NavLink
           to="/auth"
-          className="px-4 py-2 bg-green-500 text-white rounded-md"
+          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
         >
           Register
         </NavLink>
         <NavLink
+          to="/olamap"
+          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+        >
+          Ola Map
+        </NavLink>
+        <NavLink
           to="/contract"
-          className="px-4 py-2 bg-green-500 text-white rounded-md"
+          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
         >
           Create Contract
         </NavLink>
