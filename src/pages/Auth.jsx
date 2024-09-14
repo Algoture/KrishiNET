@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   TextField,
   Button,
@@ -15,7 +15,27 @@ const Auth = () => {
   const [email, setemail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  // const [ip, setIp] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [region, setRegion] = useState("");
 
+  // const fetchIp = async () => {
+  //   try {
+  //     const response = await fetch("https://api.ipify.org?format=json");
+  //     const data = await response.json();
+  //     setIp(data.ip);
+  //     const locationResponse = await fetch(`https://ipapi.co/${data.ip}/json/`);
+  //     const locationData = await locationResponse.json();
+  //     setLocation(locationData.city);
+  //     setRegion(locationData.region);
+  //     // console.log(locationData);
+  //   } catch (error) {
+  //     console.error("Error fetching IP or location:", error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchIp();
+  // }, []);
   const handleRegister = async (event) => {
     event.preventDefault();
     try {
@@ -33,8 +53,7 @@ const Auth = () => {
   const fetchUserData = async () => {
     try {
       const user = await account.get();
-      console.log("User data:", user);
-      console.log("User type:", user.prefs.userType);
+      console.log(user);
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -49,6 +68,7 @@ const Auth = () => {
       className="flex flex-col gap-2 w-fit ml-2 mt-2"
       onSubmit={handleRegister}
     >
+      <h1 className="text-3xl font-bold">Welcome to KrishiNET </h1>
       <TextField
         label="Email"
         onChange={(e) => setemail(e.target.value)}
