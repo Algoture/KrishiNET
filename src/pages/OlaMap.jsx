@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import "../OlaMaps/OlaMapsWebSDK/style.css";
 import { OlaMaps } from "../OlaMaps/OlaMapsWebSDK/olamaps-js-sdk.es.js";
-import { apiKey } from "../utils/OlaMaps";
+import { olaApiKey } from "../utils/OlaMaps";
 
 const OlaMap = () => {
   useEffect(() => {
     const olaMaps = new OlaMaps({
-      apiKey: apiKey,
+      apiKey: olaApiKey,
     });
 
     olaMaps.init({
