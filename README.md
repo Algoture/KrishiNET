@@ -16,10 +16,6 @@ The Assured Contract Farming Platform is an online marketplace designed to conne
   - Search and match buyers and farmers based on location, crop type, and production capacity.
   - Notification system to alert users about potential matches.
 
-- **Contract Management**
-  - Create, edit, and manage farming contracts with clear terms, conditions, and milestones.
-  - Upload and store relevant documents securely.
-
 - **Price Negotiation**
   - Bidding system to enable price negotiation between farmers and buyers.
   - Access to price benchmarks and market trends for informed decision-making.
@@ -39,13 +35,6 @@ The Assured Contract Farming Platform is an online marketplace designed to conne
 - **User Support and Dispute Resolution**
   - Comprehensive help center with FAQs, guides, and contact options for user assistance.
   - Dispute resolution mechanism to handle conflicts and ensure fair outcomes.
-
-## **Getting Started**
-
-### **Prerequisites**
-
-- Node.js
-- MongoDB
 
 
 ### **Usage**
