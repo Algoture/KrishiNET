@@ -9,8 +9,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(false);
 
   useEffect(() => {
-    setLoading(false);
-  }, []);
+    checkUserStatus();
+  }, [])
 
   const loginUser = async (userInfo) => {
     setLoading(true);
@@ -87,6 +87,16 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);
   };
+
+  const checkUserStatus = async () => {
+    try {
+      let accountDetails = await account.get();
+      setUser(accountDetails)
+    } catch (error) {
+      console.error(error)
+    }
+    setLoading(false);
+  }
 
   const contextData = {
     user,
