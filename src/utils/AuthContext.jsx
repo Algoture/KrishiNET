@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { account } from "./appwriteConfig";
+import { account, databaseId, collectionId, databases } from "./appwriteConfig";
 import { ID } from "appwrite";
 const AuthContext = createContext();
 
@@ -48,6 +48,23 @@ export const AuthProvider = ({ children }) => {
             await account.createEmailPasswordSession(userInfo.email, userInfo.password1);
             let accountDetails = await account.get();
             setUser(accountDetails);
+
+            const userProfileResponse = await databases.createDocument(
+                databaseId,
+                collectionId,
+                ID.unique(),
+                {
+                    userId: accountDetails.$id,
+                    name: userInfo.name,
+                    phone: userInfo.phone,
+                    city: userInfo.city,
+                    state: userInfo.state,
+                    role: userInfo.userType,
+                    email: userInfo.email,
+                }
+            );
+
+            console.log("User profile saved: ", userProfileResponse);
 
         } catch (error) {
             console.error(error)
