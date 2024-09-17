@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const BuyerDashboard = () => {
+export const BuyerDashboard = ({ user }) => {
     return (
         <div>
             <h1>Welcome, Buyer!</h1>

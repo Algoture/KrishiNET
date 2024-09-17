@@ -6,6 +6,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import { AuthProvider } from "./utils/AuthContext";
 import PrivateRoutes from "./utils/PrivateRoutes"
+import Profile from "./components/Profile";
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route element={<PrivateRoutes />}>
 
             <Route path="/" element={<HomePage />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
             <Route path="*" element={<Navigate to="/" />} />

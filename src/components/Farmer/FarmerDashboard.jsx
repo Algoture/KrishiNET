@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const FarmerDashboard = () => {
+export const FarmerDashboard = ({ user }) => {
     return (
         <div>
             <h1>Welcome, Farmer!</h1>
