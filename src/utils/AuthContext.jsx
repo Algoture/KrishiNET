@@ -10,11 +10,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkUserStatus();
-  }, [])
+  }, []);
 
   const loginUser = async (userInfo) => {
     setLoading(true);
-    console.log("loginUser called with: ", userInfo);
+    // console.log("User Info: ", userInfo);
+    console.log("User Login Done");
     try {
       let response = await account.createEmailPasswordSession(
         userInfo.email,
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       );
       let accountDetails = await account.get();
       setUser(accountDetails);
-      console.log("accountDetails: ", accountDetails);
+      // console.log("accountDetails: ", accountDetails);
     } catch (error) {
       console.error("Error during login:", error);
     } finally {
@@ -32,6 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const logoutUser = async () => {
     await account.deleteSession("current");
+    console.log("User Logged Out");
     setUser(false);
   };
 
@@ -91,12 +93,12 @@ export const AuthProvider = ({ children }) => {
   const checkUserStatus = async () => {
     try {
       let accountDetails = await account.get();
-      setUser(accountDetails)
+      setUser(accountDetails);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
     setLoading(false);
-  }
+  };
 
   const contextData = {
     user,

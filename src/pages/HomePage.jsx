@@ -1,23 +1,14 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
-import { fetchRecommendations } from "../utils/Recommendations";
+import { getRecommendations } from "../utils/Recommendations";
 
 const HomePage = () => {
   const { user, logoutUser } = useAuth();
   const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
-    const fetchAndSetRecommendations = async () => {
-      if (user) {
-        const recommendedUsers = await fetchRecommendations(user);
-        setRecommendations(recommendedUsers);
-      } else {
-        console.error("No user logged in");
-      }
-    };
-
-    fetchAndSetRecommendations();
+    getRecommendations(user, setRecommendations);
   }, [user]);
 
   return (
@@ -66,11 +57,15 @@ const HomePage = () => {
         <ul>
           {recommendations.length > 0 ? (
             recommendations.map((user) => (
-              <li key={user.$id} className="border p-4 mb-2 rounded-md shadow-sm">
+              <li
+                key={user.$id}
+                className="border p-4 mb-2 rounded-md shadow-sm"
+              >
                 <h3 className="text-xl font-bold">{user.name}</h3>
                 <p>Email: {user.email}</p>
                 <p>Phone: {user.phone}</p>
                 <p>City: {user.city}</p>
+                <p>Role: {user.role}</p>
                 <p>Distance: {user.distance.toFixed(2)} km</p>
               </li>
             ))

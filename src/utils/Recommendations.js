@@ -47,3 +47,11 @@ export const fetchRecommendations = async (user) => {
     console.error("Error fetching recommendations: ", error);
   }
 };
+export const getRecommendations = async (user, setRecommendations) => {
+  if (user) {
+    const recommendedUsers = await fetchRecommendations(user);
+    setRecommendations(recommendedUsers);
+  } else {
+    console.error("No user logged in");
+  }
+};
