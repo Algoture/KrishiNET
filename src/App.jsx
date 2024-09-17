@@ -1,17 +1,30 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ContractForm from "./components/ContractForm";
-import Auth from "./pages/Auth";
 import OlaMap from "./pages/OlaMap";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
+import { AuthProvider } from "./utils/AuthContext";
+import PrivateRoutes from "./utils/PrivateRoutes"
 function App() {
+
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/contract" element={<ContractForm />} />
-        <Route path="/olamap" element={<OlaMap />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route element={<PrivateRoutes />}>
+
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contract" element={<ContractForm />} />
+            <Route path="/olamap" element={<OlaMap />} />
+            <Route path="*" element={<Navigate to="/" />} />
+
+          </Route>
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

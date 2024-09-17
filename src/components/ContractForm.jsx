@@ -35,7 +35,7 @@ const ContractForm = () => {
       <Button
         onClick={handleCreateContract}
         variant="contained"
-        sx={{ backgroundColor: "#7bf1a8", borderRadius: "5px",color:"black" }}
+        sx={{ backgroundColor: "#7bf1a8", borderRadius: "5px", color: "black" }}
       >
         Create Contract
       </Button>
