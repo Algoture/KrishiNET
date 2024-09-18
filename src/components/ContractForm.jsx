@@ -1,22 +1,17 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import "../style/index.css";
+import SmartContract from "./SmartContract";
 const ContractForm = () => {
   const [cropType, setCropType] = useState("");
   const [quantity, setQuantity] = useState("");
   const [pricePerKg, setPricePerKg] = useState("");
-  const handleCreateContract = async () => {
-    const contract = {
-      cropType,
-      quantity: parseInt(quantity),
-      pricePerKg: parseInt(pricePerKg),
-      status: "open",
-      createdAt: new Date().toISOString(),
-    };
+  const handleCreateContract = () => {
+    console.log("Mogambo khush hua");
   };
 
   return (
-    <form className="flex gap-2 w-fit ml-2 mt-2">
+    <form className="flex flex-col gap-2 w-fit ml-2 mt-2">
       <TextField
         label="Crop Name"
         value={cropType}
@@ -39,6 +34,8 @@ const ContractForm = () => {
       >
         Create Contract
       </Button>
+
+      <SmartContract />
     </form>
   );
 };
