@@ -35,7 +35,7 @@ const HomePage = () => {
         >
           Profile
         </NavLink>
-
+        <NavLink to="/LandingPage" className="px-4 py-2 bg-yellow-400 text-black rounded-md">Landing Page</NavLink>
         {user ? (
           <button
             onClick={logoutUser}

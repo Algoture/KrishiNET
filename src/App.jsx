@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import { AuthProvider } from "./utils/AuthContext";
 import PrivateRoutes from "./utils/PrivateRoutes"
 import Profile from "./components/Profile";
+import LandingPage from "./pages/Landingpage";
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route element={<PrivateRoutes />}>
+            <Route path="/landingPage" element={<LandingPage />} />
 
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<Profile />} />
