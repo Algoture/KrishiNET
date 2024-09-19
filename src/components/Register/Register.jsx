@@ -122,7 +122,6 @@ const Register = () => {
             </InputLabel>
             <OutlinedInput
               sx={{ width: "100%" }}
-              id="outlined-adornment-password"
               type={showPassword1 ? "text" : "password"}
               value={password1}
               onChange={(e) => setPassword1(e.target.value)}
@@ -150,7 +149,6 @@ const Register = () => {
             </InputLabel>
             <OutlinedInput
               sx={{ width: "100%" }}
-              id="outlined-adornment-password"
               type={showPassword2 ? "text" : "password"}
               onChange={(e) => setPassword2(e.target.value)}
               value={password2}
