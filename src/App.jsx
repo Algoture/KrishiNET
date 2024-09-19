@@ -7,7 +7,7 @@ import Login from "./components/Login/Login";
 import { AuthProvider } from "./utils/AuthContext";
 import PrivateRoutes from "./utils/PrivateRoutes"
 import Profile from "./components/Profile";
-import LandingPage from "./pages/Landingpage";
+import LandingPage from "./pages/LandingPage";
 function App() {
 
   return (
