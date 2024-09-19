@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
         }
       );
 
-      console.log("User profile saved: ", userProfileResponse);
+      console.log("User profile saved: ");
     } catch (error) {
       console.error(error);
     }
