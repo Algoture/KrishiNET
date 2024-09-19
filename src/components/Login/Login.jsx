@@ -25,34 +25,54 @@ const Login = () => {
     }
 
     return (
-        <form className="flex flex-col gap-2 w-fit ml-2 mt-2" ref={Loginform} onSubmit={handleSubmit}>
-            <h1 className="text-3xl font-bold">Login to KrishiNET</h1>
-            <TextField
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="password"
-            />
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{
-                    backgroundColor: "#7bf1a8",
-                    borderRadius: "5px",
-                    color: "black",
-                }}
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-96 relative">
+            <h1 className="text-3xl  font-semibold mb-2 text-center">Login to Krishi<span className="text-green-400">NET</span></h1>
+            <form
+                className="flex flex-col gap-4"
+                ref={Loginform}
+                onSubmit={handleSubmit}
             >
-                Login
-            </Button>
-            <p>Don't have an account? <NavLink to="/register">Register</NavLink></p>
-        </form>
+                <TextField
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full p-3 border rounded-lg"
+                />
+                <TextField
+                    label="Password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="password"
+                    className="w-full p-3 border rounded-lg"
+                />
+                <a href="#" className="text-gray-600 mb-2 text-right block">
+                    Forgot Password?
+                </a>
+                <Button
+                    type="submit"
+                    variant="contained"
+                    className="w-full bg-green-500 text-white p-3 rounded-lg"
+                    sx={{
+                        backgroundColor: "#7bf1a8",
+                        borderRadius: "5px",
+                        color: "black",
+                    }}
+                >
+                    Login
+                </Button>
+            </form>
+            <p className="text-center text-gray-600 mt-4">
+                Don't have an account?{" "}
+                <NavLink to="/register" className="text-blue-500">
+                    Register
+                </NavLink>
+            </p>
+        </div>
+    </div>
+    
     );
 };
 
