@@ -17,36 +17,36 @@ const HomePage = () => {
       <div className="flex gap-4 mt-4">
         <NavLink
           to="/olamap"
-          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+          className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Ola Map
         </NavLink>
 
         <NavLink
           to="/contract"
-          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+          className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Create Contract
         </NavLink>
 
         <NavLink
           to="/profile"
-          className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+          className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Profile
         </NavLink>
-        <NavLink to="/LandingPage" className="px-4 py-2 bg-yellow-400 text-black rounded-md">Landing Page</NavLink>
+        <NavLink to="/LandingPage" className="px-4 py-2 bg-accent text-black rounded-md">Landing Page</NavLink>
         {user ? (
           <button
             onClick={logoutUser}
-            className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+            className="px-4 py-2 bg-accent text-black rounded-md"
           >
             Logout
           </button>
         ) : (
           <NavLink
             to="/login"
-            className="px-4 py-2 bg-yellow-400 text-black rounded-md"
+            className="px-4 py-2 bg-accent text-black rounded-md"
           >
             Login
           </NavLink>

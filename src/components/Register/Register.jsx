@@ -1,10 +1,24 @@
 import { useState, useRef, useEffect } from "react";
-import { TextField, Button, RadioGroup, Radio, FormControlLabel } from "@mui/material";
+import {
+  TextField,
+  Button,
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  InputAdornment,
+  OutlinedInput,
+  IconButton,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 import { useAuth } from "../../utils/AuthContext";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 const Register = () => {
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const [userType, setUserType] = useState("farmer");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -19,7 +33,7 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate("/");
     }
   }, [user, navigate]);
 
@@ -52,12 +66,15 @@ const Register = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center w-full h-full min-h-screen bg-gray-100">
-      <div className="bg-white items-center p-8 rounded-lg shadow-lg w-[30rem] ">
-        <h1 className="text-3xl   font-semibold mb-2">Welcome to Krishi<span className="text-green-400">NET</span></h1>
-        <p className="text-gray-600 mb-6">Create an account to get started</p>
-        <form className="space-y-4 " ref={registerForm} onSubmit={handleSubmit}>
-         
+    <div className="relative flex items-center justify-center w-full h-full min-h-screen bg-gray-100 p-8">
+      <div className="bg-white items-center p-8 rounded-lg shadow-box w-[30rem] ">
+        <h1 className="text-3xl font-semibold text-left">SignUp</h1>
+        <p className="text-gray-600 mb-6">to get started</p>
+        <form
+          className="space-y-4  "
+          ref={registerForm}
+          onSubmit={handleSubmit}
+        >
           <TextField
             label="Name"
             fullWidth
@@ -66,7 +83,7 @@ const Register = () => {
             value={name}
             className="w-full"
           />
-           <TextField
+          <TextField
             label="Email"
             fullWidth
             variant="outlined"
@@ -98,34 +115,82 @@ const Register = () => {
             value={state}
             className="w-full"
           />
-          <TextField
-            label="Password"
-            type="password"
-            fullWidth
-            variant="outlined"
-            onChange={(e) => setPassword1(e.target.value)}
-            value={password1}
-            className="w-full"
-          />
-          <TextField
-            label="Confirm Password"
-            type="password"
-            fullWidth
-            variant="outlined"
-            onChange={(e) => setPassword2(e.target.value)}
-            value={password2}
-            className="w-full"
-          />
-         <RadioGroup
-  value={userType}
-  onChange={handleUserTypeChange}
-  className="flex space-x-4"
->
-  <div className="flex space-x-4"> 
-    <FormControlLabel value="farmer" control={<Radio />} label="Farmer" />
-    <FormControlLabel value="buyer" control={<Radio />} label="Buyer" />
-  </div>
-</RadioGroup>
+
+          <FormControl variant="outlined" className="w-full">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              sx={{ width: "100%" }}
+              id="outlined-adornment-password"
+              type={showPassword1 ? "text" : "password"}
+              value={password1}
+              onChange={(e) => setPassword1(e.target.value)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label=""
+                    onClick={() => setShowPassword1(!showPassword1)}
+                    edge="end"
+                  >
+                    {showPassword1 ? (
+                      <VisibilityOffRoundedIcon />
+                    ) : (
+                      <VisibilityRoundedIcon />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+          </FormControl>
+          <FormControl variant="outlined" className="w-full">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Confirm Password
+            </InputLabel>
+            <OutlinedInput
+              sx={{ width: "100%" }}
+              id="outlined-adornment-password"
+              type={showPassword2 ? "text" : "password"}
+              onChange={(e) => setPassword2(e.target.value)}
+              value={password2}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label=""
+                    onClick={() => setShowPassword2(!showPassword2)}
+                    edge="end"
+                  >
+                    {showPassword2 ? (
+                      <VisibilityOffRoundedIcon />
+                    ) : (
+                      <VisibilityRoundedIcon />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Confirm Password"
+            />
+          </FormControl>
+
+          <RadioGroup
+            value={userType}
+            onChange={handleUserTypeChange}
+            className="flex space-x-4"
+          >
+            <div className="flex space-x-4">
+              <FormControlLabel
+                value="farmer"
+                control={<Radio />}
+                label="Farmer"
+              />
+              <FormControlLabel
+                value="buyer"
+                control={<Radio />}
+                label="Buyer"
+              />
+            </div>
+          </RadioGroup>
 
           {/* <div className="flex items-center">
             <input type="checkbox" id="terms" className="mr-2" />
@@ -137,7 +202,7 @@ const Register = () => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ backgroundColor: "#7bf1a8", color: "black" }}
+            sx={{ backgroundColor: "#70e000", color: "black" }}
             className="w-full p-3 rounded-lg"
           >
             Register
@@ -145,7 +210,7 @@ const Register = () => {
         </form>
         <p className="text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <NavLink to="/login" c className="text-blue-500">
+          <NavLink to="/login" c className="text-link">
             Login
           </NavLink>
         </p>
