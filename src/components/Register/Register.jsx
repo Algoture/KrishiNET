@@ -145,7 +145,7 @@ const Register = () => {
         </form>
         <p className="text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <NavLink to="/login" className="text-black font-bold">
+          <NavLink to="/login" c className="text-blue-500">
             Login
           </NavLink>
         </p>
