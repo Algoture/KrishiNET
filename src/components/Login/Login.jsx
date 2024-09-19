@@ -71,6 +71,7 @@ const Login = () => {
                 </NavLink>
             </p>
         </div>
+                          
     </div>
     
     );

@@ -15,22 +15,21 @@ const Register = () => {
   const [state, setState] = useState("");
 
   const { user, registerUser } = useAuth();
-
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
       navigate('/');
     }
-  }, []);
+  }, [user, navigate]);
 
   const registerForm = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password1 != password2) {
+    if (password1 !== password2) {
       alert("Passwords do not match");
-      return
+      return;
     }
 
     const userInfo = {
@@ -41,76 +40,117 @@ const Register = () => {
       state,
       password1,
       password2,
-      userType
-    }
+      userType,
+    };
 
-    registerUser(userInfo)
-
+    registerUser(userInfo);
   };
 
   const handleUserTypeChange = (e) => {
     e.preventDefault();
-    setUserType(e.target.value)
-  }
+    setUserType(e.target.value);
+  };
 
   return (
-    <form className="flex flex-col gap-2 w-fit ml-2 mt-2" ref={registerForm} onSubmit={handleSubmit}>
-      <h1 className="text-3xl font-bold">Welcome to KrishiNET </h1>
-      <TextField
-        label="Email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email} />
+    <div className="relative flex items-center justify-center w-full h-full min-h-screen bg-gray-100">
+      <div className="bg-white items-center p-8 rounded-lg shadow-lg w-[30rem] ">
+        <h1 className="text-3xl   font-semibold mb-2">Welcome to Krishi<span className="text-green-400">NET</span></h1>
+        <p className="text-gray-600 mb-6">Create an account to get started</p>
+        <form className="space-y-4 " ref={registerForm} onSubmit={handleSubmit}>
+         
+          <TextField
+            label="Name"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            className="w-full"
+          />
+           <TextField
+            label="Email"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className="w-full"
+          />
+          <TextField
+            label="Phone"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            className="w-full"
+          />
+          <TextField
+            label="City"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
+            className="w-full"
+          />
+          <TextField
+            label="State"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setState(e.target.value)}
+            value={state}
+            className="w-full"
+          />
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setPassword1(e.target.value)}
+            value={password1}
+            className="w-full"
+          />
+          <TextField
+            label="Confirm Password"
+            type="password"
+            fullWidth
+            variant="outlined"
+            onChange={(e) => setPassword2(e.target.value)}
+            value={password2}
+            className="w-full"
+          />
+         <RadioGroup
+  value={userType}
+  onChange={handleUserTypeChange}
+  className="flex space-x-4"
+>
+  <div className="flex space-x-4"> 
+    <FormControlLabel value="farmer" control={<Radio />} label="Farmer" />
+    <FormControlLabel value="buyer" control={<Radio />} label="Buyer" />
+  </div>
+</RadioGroup>
 
-      <TextField
-        label="Name"
-        onChange={(e) => setName(e.target.value)}
-        value={name} />
-
-      <TextField
-        label="Phone"
-        onChange={(e) => setPhone(e.target.value)}
-        value={phone} />
-
-      <TextField
-        label="City"
-        onChange={(e) => setCity(e.target.value)}
-        value={city} />
-
-      <TextField
-        label="State"
-        onChange={(e) => setState(e.target.value)}
-        value={state} />
-
-      <TextField
-        label="Password"
-        type="password"
-        autoComplete="password"
-        onChange={(e) => setPassword1(e.target.value)}
-        value={password1} />
-
-      <TextField
-        label="Confirm Password"
-        type="password"
-        autoComplete="password"
-        onChange={(e) => setPassword2(e.target.value)}
-        value={password2} />
-
-      <RadioGroup
-        value={userType}
-        onChange={handleUserTypeChange}>
-        <FormControlLabel value="farmer" control={<Radio />} label="Farmer" />
-        <FormControlLabel value="buyer" control={<Radio />} label="Buyer" />
-      </RadioGroup>
-
-      <Button
-        type="submit"
-        variant="contained"
-        sx={{ backgroundColor: "#7bf1a8", borderRadius: "5px", color: "black" }}>
-        Register
-      </Button>
-
-      <p>Already have an account? <NavLink to="/login">login</NavLink></p>
-    </form>
+          {/* <div className="flex items-center">
+            <input type="checkbox" id="terms" className="mr-2" />
+            <label htmlFor="terms" className="text-gray-600">
+              Agree to our terms and conditions
+            </label>
+          </div> */}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ backgroundColor: "#7bf1a8", color: "black" }}
+            className="w-full p-3 rounded-lg"
+          >
+            Register
+          </Button>
+        </form>
+        <p className="text-center text-gray-600 mt-4">
+          Already have an account?{" "}
+          <NavLink to="/login" className="text-black font-bold">
+            Login
+          </NavLink>
+        </p>
+      </div>
+    </div>
   );
 };
 
