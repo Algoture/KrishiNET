@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { account, databaseId, collectionId, databases } from "./appwriteConfig";
 import { ID } from "appwrite";
-import { olaApiKey } from "./OlaMaps";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -40,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   const registerUser = async (userInfo) => {
     setLoading(true);
     try {
-      let response = await account.create(
+      await account.create(
         ID.unique(),
         userInfo.email,
         userInfo.password1,
@@ -58,30 +57,16 @@ export const AuthProvider = ({ children }) => {
       let accountDetails = await account.get();
       setUser(accountDetails);
 
-      const user = await fetch(
-        `https://api.olamaps.io/places/v1/geocode?address=${userInfo.city}&api_key=${olaApiKey}`
-      );
-      const userData = await user.json();
-      const { lat, lng } = userData.geocodingResults[0].geometry.location;
-      const latString = lat.toFixed(5).toString();
-      const lngString = lng.toFixed(5).toString();
-      const coordinates = [latString, lngString];
-
-      const userProfileResponse = await databases.createDocument(
-        databaseId,
-        collectionId,
-        ID.unique(),
-        {
-          userId: accountDetails.$id,
-          name: userInfo.name,
-          phone: userInfo.phone,
-          city: userInfo.city,
-          state: userInfo.state,
-          role: userInfo.userType,
-          email: userInfo.email,
-          coordinates: coordinates,
-        }
-      );
+      await databases.createDocument(databaseId, collectionId, ID.unique(), {
+        userId: accountDetails.$id,
+        name: userInfo.name,
+        phone: userInfo.phone,
+        city: userInfo.city,
+        state: userInfo.state,
+        role: userInfo.userType,
+        email: userInfo.email,
+        coordinates: userInfo.coordinates,
+      });
 
       console.log("User profile saved: ");
     } catch (error) {

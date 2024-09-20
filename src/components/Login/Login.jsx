@@ -1,14 +1,14 @@
+import { PasswordInput, SubmitBtn, InputField, Already } from "../../Index";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/AuthContext";
-import { TextField, Button } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
+  const [showPassword, setshowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { user, loginUser } = useAuth();
-
   const Loginform = useRef(null);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userInfo = { email, password };
-
     loginUser(userInfo);
   };
 
@@ -32,43 +31,26 @@ const Login = () => {
           ref={Loginform}
           onSubmit={handleSubmit}
         >
-          <TextField
+          <InputField
             label="Email"
-            type="email"
             value={email}
+            type="email"
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border rounded-lg"
           />
-          <TextField
+          <PasswordInput
             label="Password"
-            type="password"
             value={password}
+            showPassword={showPassword}
+            toggleShowPassword={() => setshowPassword(!showPassword)}
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="password"
-            className="w-full p-3 border rounded-lg"
           />
           <NavLink to="/forgotPassword" className="text-right text-link">
             Forgot Password?
           </NavLink>
 
-          <Button
-            type="submit"
-            variant="contained"
-            className="w-full p-3 rounded-lg"
-            sx={{
-              backgroundColor: "#70e000",
-              color: "black",
-            }}
-          >
-            Login
-          </Button>
+          <SubmitBtn text="Login" />
         </form>
-        <p className="text-center text-gray-600 mt-4">
-          Don't have an account?{" "}
-          <NavLink to="/register" className="text-link">
-            Register
-          </NavLink>
-        </p>
+        <Already log={true} />
       </div>
     </div>
   );
