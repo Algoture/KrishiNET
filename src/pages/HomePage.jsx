@@ -13,7 +13,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col items-center mt-10">
-      <h1 className="text-3xl font-bold">Welcome to KrishiNET</h1>
+      <h1 className="text-3xl font-bold">Welcome to Krishi<span className="text-accent">NET</span></h1>
       <div className="flex gap-4 mt-4">
         <NavLink
           to="/olamap"

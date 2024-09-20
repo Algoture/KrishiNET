@@ -4,7 +4,7 @@ export default {
   theme: {
     colors: {
       accent: "#70e000",
-      link: "#0e3041",
+      link: "#004bff",
       primary: "#F4F4F4",
     },
     boxShadow: {

@@ -208,7 +208,7 @@ const Register = () => {
         </form>
         <p className="text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <NavLink to="/login" c className="text-link">
+          <NavLink to="/login" className="text-link">
             Login
           </NavLink>
         </p>
