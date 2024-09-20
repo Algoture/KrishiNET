@@ -23,15 +23,13 @@ const Register = () => {
   const [password2, setPassword2] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
-  const [state, setState] = useState(""); // Store state as a string
+  const [state, setState] = useState("");
   const [checked, setChecked] = useState(false);
   const { user, registerUser } = useAuth();
   const navigate = useNavigate();
   const [stateList, setStateList] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
   const [cityList, setCityList] = useState([]);
-
-  // Fetch states on component load
   useEffect(() => {
     const fetchStates = async () => {
       const states = await GetState(countryId);
@@ -40,12 +38,12 @@ const Register = () => {
     fetchStates();
   }, []);
 
-  // Fetch cities when the state changes
+
   useEffect(() => {
     if (state) {
       const selectedStateObj = stateList.find(
         (s) => s.name === state
-      ); // Find state object
+      ); 
       if (selectedStateObj) {
         const fetchCities = async () => {
           const cities = await GetCity(countryId, selectedStateObj.id);
@@ -54,11 +52,10 @@ const Register = () => {
         fetchCities();
       }
     } else {
-      setCityList([]); // Clear cities if no state is selected
+      setCityList([]);
     }
   }, [state, stateList]);
 
-  // Navigate if user is logged in
   useEffect(() => {
     if (user) {
       navigate("/");
@@ -90,7 +87,7 @@ const Register = () => {
       email,
       phone,
       city,
-      state, // Store state as a string
+      state,
       password1,
       password2,
       userType,
@@ -101,7 +98,7 @@ const Register = () => {
 
   const stateChange = (e) => {
     const selectedStateName = e.target.value;
-    setState(selectedStateName); // Set state as a string
+    setState(selectedStateName);
   };
 
   const cityChange = (cityObj) => {
@@ -148,13 +145,13 @@ const Register = () => {
           <StateSelect
             states={stateList}
             selectedState={state}
-            onChange={stateChange} // Handle state change
+            onChange={stateChange} 
           />
           <CitySelect
             cities={cityList}
             selectedCity={city}
-            onChange={cityChange} // Handle city change
-            disabled={!state} // Disable until state is selected
+            onChange={cityChange}
+            disabled={!state}
           />
           <PasswordInput
             label="Password"
