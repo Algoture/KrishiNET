@@ -13,3 +13,20 @@ export {
   PasswordInput,
   InputField,
 };
+
+// Pages:
+import HomePage from "./pages/HomePage";
+import Home from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+export { HomePage, LandingPage, LoginPage, RegisterPage, Home };
+
+// Utils:
+import { AuthProvider, useAuth } from "./utils/AuthContext";
+import { getRecommendations } from "./utils/Recommendations";
+export { AuthProvider, useAuth, getRecommendations };
+
+// Components:
+import Nav from "./components/Nav";
+export { Nav };

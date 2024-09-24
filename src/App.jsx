@@ -1,31 +1,38 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import {
+  HomePage,
+  LandingPage,
+  LoginPage,
+  RegisterPage,
+  AuthProvider,
+  Home,
+} from "./Index";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import ContractForm from "./components/ContractForm";
 import OlaMap from "./pages/OlaMap";
-import Register from "./components/Register/Register";
-import Login from "./components/Login/Login";
-import { AuthProvider } from "./utils/AuthContext";
-import PrivateRoutes from "./utils/PrivateRoutes"
+import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./components/Profile";
-import LandingPage from "./pages/LandingPage";
 function App() {
-
   return (
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
 
           <Route element={<PrivateRoutes />}>
             <Route path="/landingPage" element={<LandingPage />} />
 
             <Route path="/" element={<HomePage />} />
+            <Route path="/homie" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
             <Route path="*" element={<Navigate to="/" />} />
-
           </Route>
         </Routes>
       </AuthProvider>

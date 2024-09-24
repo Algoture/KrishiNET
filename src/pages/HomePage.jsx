@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext";
-import { getRecommendations } from "../utils/Recommendations";
+import { useAuth, getRecommendations } from "../Index";
 
 const HomePage = () => {
   const { user, logoutUser } = useAuth();
@@ -13,7 +12,9 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col items-center mt-10">
-      <h1 className="text-3xl font-bold">Welcome to Krishi<span className="text-accent">NET</span></h1>
+      <h1 className="text-3xl font-bold">
+        Welcome to Krishi<span className="text-accent">NET</span>
+      </h1>
       <div className="flex gap-4 mt-4">
         <NavLink
           to="/olamap"
@@ -35,7 +36,18 @@ const HomePage = () => {
         >
           Profile
         </NavLink>
-        <NavLink to="/LandingPage" className="px-4 py-2 bg-accent text-black rounded-md">Landing Page</NavLink>
+        <NavLink
+          to="/LandingPage"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          Landing Page
+        </NavLink>
+        <NavLink
+          to="/homie"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          Homie Page
+        </NavLink>
         {user ? (
           <button
             onClick={logoutUser}

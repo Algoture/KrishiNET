@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { RadioGroup, Radio, FormControlLabel, Checkbox } from "@mui/material";
 import { GetState, GetCity } from "react-country-state-city";
-import { useAuth } from "../../utils/AuthContext";
+import { useAuth } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 const countryId = 101; // India
 import {
@@ -11,9 +11,9 @@ import {
   SubmitBtn,
   InputField,
   Already,
-} from "../../Index";
+} from "../Index";
 
-const Register = () => {
+const RegisterPage = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [userType, setUserType] = useState("farmer");
@@ -43,9 +43,7 @@ const Register = () => {
   // Fetch cities when the state changes
   useEffect(() => {
     if (state) {
-      const selectedStateObj = stateList.find(
-        (s) => s.name === state
-      ); // Find state object
+      const selectedStateObj = stateList.find((s) => s.name === state); // Find state object
       if (selectedStateObj) {
         const fetchCities = async () => {
           const cities = await GetCity(countryId, selectedStateObj.id);
@@ -209,4 +207,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;

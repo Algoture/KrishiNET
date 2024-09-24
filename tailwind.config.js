@@ -6,6 +6,8 @@ export default {
       accent: "#70e000",
       link: "#004bff",
       primary: "#F4F4F4",
+      white: "#ffffff",
+      bred: "#d90429",
     },
     boxShadow: {
       box: "10px 10px 40px #00000041, inset -10px -10px 40px #ffffff40",

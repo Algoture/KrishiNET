@@ -1,9 +1,9 @@
-import { PasswordInput, SubmitBtn, InputField, Already } from "../../Index";
+import { PasswordInput, SubmitBtn, InputField, Already } from "../Index";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../../utils/AuthContext";
+import { useAuth } from "../utils/AuthContext";
 
-const Login = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [showPassword, setshowPassword] = useState(false);
   const [password, setPassword] = useState("");
@@ -56,4 +56,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
