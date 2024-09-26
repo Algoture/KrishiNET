@@ -30,4 +30,5 @@ export { AuthProvider, useAuth, getRecommendations };
 // Components:
 import Nav from "./components/Nav";
 import RecommendCard from "./components/RecommendCard";
-export { Nav, RecommendCard };
+import BackBtn from "./components/BackBtn";
+export { Nav, RecommendCard, BackBtn };

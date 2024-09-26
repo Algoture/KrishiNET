@@ -5,7 +5,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Button, CircularProgress, Rating } from "@mui/material";
-import { getRecommendations, useAuth } from "../Index";
+import { getRecommendations, useAuth, BackBtn } from "../Index";
 const RecommendCard = () => {
   const [recommendations, setRecommendations] = useState([]);
   const { user } = useAuth();
@@ -14,13 +14,7 @@ const RecommendCard = () => {
   }, [user]);
   return (
     <div className="w-full flex-col flex items-center justify-center gap-5">
-      <Button
-        variant="contained"
-        onClick={() => history.back()}
-        sx={{ position: "absolute", top: "1rem", left: "1rem" }}
-      >
-        Back
-      </Button>
+      <BackBtn />
       <h2 className="text-3xl font-normal text-center">
         Recommended Users To You
       </h2>

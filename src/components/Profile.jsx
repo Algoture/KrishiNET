@@ -9,7 +9,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { databases, databaseId, collectionId } from "../utils/appwriteConfig";
 import { Query } from "appwrite";
-import { Button, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
+import { BackBtn } from "../Index";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -60,15 +61,10 @@ const Profile = () => {
   if (!userData) {
     return <p>No user data found</p>;
   }
+
   return (
     <div className="w-full flex-col flex items-center justify-center gap-5 mt-5">
-      <Button
-        variant="contained"
-        onClick={() => history.back()}
-        sx={{ position: "absolute", top: "1rem", left: "1rem" }}
-      >
-        Back
-      </Button>
+      <BackBtn />
       <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col">
         <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5">
           <div className="flex-1 flex flex-col gap-1.5">
