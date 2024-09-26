@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { account, databaseId, collectionId, databases } from "./appwriteConfig";
 import { ID } from "appwrite";
+import { CircularProgress} from "@mui/material";
 const AuthContext = createContext();
-
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(false);
@@ -94,7 +94,13 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={contextData}>
-      {loading ? <p> loading... </p> : children}
+      {loading ? (
+        <div className="w-full flex items-center justify-center h-screen">
+          <CircularProgress />
+        </div>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };

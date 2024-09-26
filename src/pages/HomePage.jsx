@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth, getRecommendations } from "../Index";
-
+import { useAuth } from "../Index";
 const HomePage = () => {
   const { user, logoutUser } = useAuth();
-  const [recommendations, setRecommendations] = useState([]);
-
-  useEffect(() => {
-    getRecommendations(user, setRecommendations);
-  }, [user]);
 
   return (
     <div className="flex flex-col items-center mt-10">
@@ -63,28 +56,13 @@ const HomePage = () => {
             Login
           </NavLink>
         )}
-      </div>
-      <div className="mt-10 w-full max-w-2xl">
-        <h2 className="text-2xl font-semibold">Recommended Users To You</h2>
-        <ul>
-          {recommendations.length > 0 ? (
-            recommendations.map((user) => (
-              <li
-                key={user.$id}
-                className="border p-4 mb-2 rounded-md shadow-sm"
-              >
-                <h3 className="text-xl font-bold">{user.name}</h3>
-                <p>Email: {user.email}</p>
-                <p>Phone: {user.phone}</p>
-                <p>City: {user.city}</p>
-                <p>Role: {user.role}</p>
-                <p>Distance: {user.distance.toFixed(2)} km</p>
-              </li>
-            ))
-          ) : (
-            <p>No recommendations available.</p>
-          )}
-        </ul>
+
+        <NavLink
+          to="/recommend"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          Get Recommendations
+        </NavLink>
       </div>
     </div>
   );

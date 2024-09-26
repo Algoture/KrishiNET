@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../utils/AuthContext";
 import { FarmerDashboard } from "./Farmer/FarmerDashboard";
 import { BuyerDashboard } from "./Buyer/BuyerDashboard";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailIcon from "@mui/icons-material/Mail";
+import PlaceIcon from "@mui/icons-material/Place";
+import PersonIcon from "@mui/icons-material/Person";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { databases, databaseId, collectionId } from "../utils/appwriteConfig";
 import { Query } from "appwrite";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -41,7 +46,11 @@ const Profile = () => {
   }, [user]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="w-full flex items-center justify-center h-screen">
+        <CircularProgress />
+      </div>
+    );
   }
 
   if (error) {
@@ -51,22 +60,49 @@ const Profile = () => {
   if (!userData) {
     return <p>No user data found</p>;
   }
-
   return (
-    <div>
-      <Button variant="contained" onClick={() => history.back()}>Back</Button>
-      <h1>{userData.name}'s Profile</h1>
-      <p>Email: {userData.email}</p>
-      <p>Phone: {userData.phone}</p>
-      <p>City: {userData.city}</p>
-      <p>State: {userData.state}</p>
-      <p>Role: {userData.role === "farmer" ? "Farmer" : "Buyer"}</p>
-
-      {userData.role === "farmer" ? (
-        <FarmerDashboard user={user} />
-      ) : (
-        <BuyerDashboard user={user} />
-      )}
+    <div className="w-full flex-col flex items-center justify-center gap-5 mt-5">
+      <Button
+        variant="contained"
+        onClick={() => history.back()}
+        sx={{ position: "absolute", top: "1rem", left: "1rem" }}
+      >
+        Back
+      </Button>
+      <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col">
+        <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5">
+          <div className="flex-1 flex flex-col gap-1.5">
+            <div className="flex items-center justify-center flex-col">
+              <AccountCircleIcon sx={{ fontSize: 75 }} />
+              <h2 className="text-3xl font-normal text-center">
+                {userData.name}
+              </h2>
+            </div>
+            <p className="text-base text-gray-500">
+              <MailIcon /> {userData.email}
+            </p>
+            <p className="text-base text-gray-500">
+              <PhoneIcon /> {userData.phone}
+            </p>
+            <p className="text-base text-gray-500">
+              <PersonIcon /> {userData.role === "farmer" ? "Farmer" : "Buyer"}
+            </p>
+            <div className="flex justify-between text-gray-600 text-base">
+              <div className="flex items-center justify-center">
+                <PlaceIcon />{" "}
+                <p className="ml-1">
+                  {userData.city}, {userData.state}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {userData.role === "farmer" ? (
+          <FarmerDashboard user={user} />
+        ) : (
+          <BuyerDashboard user={user} />
+        )}
+      </div>
     </div>
   );
 };

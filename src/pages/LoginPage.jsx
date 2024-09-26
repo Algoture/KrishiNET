@@ -16,10 +16,14 @@ const LoginPage = () => {
       navigate("/");
     }
   }, []);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const userInfo = { email, password };
-    loginUser(userInfo);
+    try {
+      await loginUser(userInfo);
+    } catch (error) {
+      console.error("Login failed", error);
+    } 
   };
 
   return (

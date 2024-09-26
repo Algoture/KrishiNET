@@ -5,6 +5,7 @@ import {
   RegisterPage,
   AuthProvider,
   Home,
+  RecommendCard,
 } from "./Index";
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ function App() {
             <Route path="/landingPage" element={<LandingPage />} />
 
             <Route path="/" element={<HomePage />} />
+            <Route path="/recommend" element={<RecommendCard />} />
             <Route path="/homie" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/contract" element={<ContractForm />} />
