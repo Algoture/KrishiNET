@@ -8,7 +8,7 @@ const HomePage = () => {
       <h1 className="text-3xl font-bold">
         Welcome to Krishi<span className="text-accent">NET</span>
       </h1>
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-5 flex-wrap p-4">
         <NavLink
           to="/olamap"
           className="px-4 py-2 bg-accent text-black rounded-md"
@@ -29,12 +29,14 @@ const HomePage = () => {
         >
           Profile
         </NavLink>
+
         <NavLink
           to="/LandingPage"
           className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Landing Page
         </NavLink>
+
         <NavLink
           to="/homie"
           className="px-4 py-2 bg-accent text-black rounded-md"

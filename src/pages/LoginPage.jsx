@@ -23,7 +23,7 @@ const LoginPage = () => {
       await loginUser(userInfo);
     } catch (error) {
       console.error("Login failed", error);
-    } 
+    }
   };
 
   return (
@@ -56,6 +56,11 @@ const LoginPage = () => {
         </form>
         <Already log={true} />
       </div>
+      <img
+        src="signIn.png"
+        alt="signInImg"
+        className="absolute right-0 h-full bottom-0 -z-50"
+      />
     </div>
   );
 };

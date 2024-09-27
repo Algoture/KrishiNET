@@ -5,7 +5,7 @@ const BackBtn = () => {
       variant="contained"
       onClick={() => history.back()}
       sx={{
-        position: "absolute",
+        position: "fixed",
         top: "1rem",
         left: "1rem",
         zIndex: 1000,

@@ -65,8 +65,13 @@ const Profile = () => {
   return (
     <div className="w-full flex-col flex items-center justify-center gap-5 mt-5">
       <BackBtn />
-      <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col">
-        <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5">
+      <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col mt-10">
+      {userData.role === "farmer" ? (
+          <FarmerDashboard user={user} />
+        ) : (
+          <BuyerDashboard user={user} />
+        )}
+        <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5 mt-10">
           <div className="flex-1 flex flex-col gap-1.5">
             <div className="flex items-center justify-center flex-col">
               <AccountCircleIcon sx={{ fontSize: 75 }} />
@@ -93,11 +98,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        {userData.role === "farmer" ? (
-          <FarmerDashboard user={user} />
-        ) : (
-          <BuyerDashboard user={user} />
-        )}
       </div>
     </div>
   );

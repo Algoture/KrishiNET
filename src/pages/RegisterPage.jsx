@@ -15,12 +15,10 @@ import {
 
 const RegisterPage = () => {
   const [showPassword1, setShowPassword1] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
   const [userType, setUserType] = useState("farmer");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password1, setPassword1] = useState("");
-  const [password2, setPassword2] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -38,12 +36,9 @@ const RegisterPage = () => {
     fetchStates();
   }, []);
 
-
   useEffect(() => {
     if (state) {
-      const selectedStateObj = stateList.find(
-        (s) => s.name === state
-      ); 
+      const selectedStateObj = stateList.find((s) => s.name === state);
       if (selectedStateObj) {
         const fetchCities = async () => {
           const cities = await GetCity(countryId, selectedStateObj.id);
@@ -64,24 +59,8 @@ const RegisterPage = () => {
 
   const registerForm = useRef(null);
 
-  const validateForm = () => {
-    return (
-      name &&
-      email &&
-      password1 &&
-      password2 &&
-      phone &&
-      password1 === password2 &&
-      checked
-    );
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password1 !== password2) {
-      alert("Passwords do not match");
-      return;
-    }
     const userInfo = {
       name,
       email,
@@ -89,7 +68,6 @@ const RegisterPage = () => {
       city,
       state,
       password1,
-      password2,
       userType,
       coordinates,
     };
@@ -145,7 +123,7 @@ const RegisterPage = () => {
           <StateSelect
             states={stateList}
             selectedState={state}
-            onChange={stateChange} 
+            onChange={stateChange}
           />
           <CitySelect
             cities={cityList}
@@ -159,13 +137,6 @@ const RegisterPage = () => {
             showPassword={showPassword1}
             toggleShowPassword={() => setShowPassword1(!showPassword1)}
             onChange={(e) => setPassword1(e.target.value)}
-          />
-          <PasswordInput
-            label="Confirm Password"
-            value={password2}
-            showPassword={showPassword2}
-            toggleShowPassword={() => setShowPassword2(!showPassword2)}
-            onChange={(e) => setPassword2(e.target.value)}
           />
 
           <RadioGroup
@@ -202,6 +173,11 @@ const RegisterPage = () => {
 
         <Already log={false} />
       </div>
+      <img
+        src="signUp.png"
+        alt="signUpImg"
+        className="absolute right-0 bottom-0 -z-50"
+      />
     </div>
   );
 };

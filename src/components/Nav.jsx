@@ -8,7 +8,7 @@ const Nav = () => {
           <NavLink to="/" className="text-4xl ">
             Krishi<span className="text-accent">NET</span>
           </NavLink>
-          <NavLink to="/home" className="text-base hover:text-accent">Home</NavLink>
+          <NavLink to="/" className="text-base hover:text-accent">Home</NavLink>
           <NavLink to="/" className="text-base hover:text-accent">Buyer</NavLink>
           <NavLink to="/" className="text-base hover:text-accent">Farmer</NavLink>
         </div>

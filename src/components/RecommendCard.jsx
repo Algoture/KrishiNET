@@ -13,7 +13,7 @@ const RecommendCard = () => {
     getRecommendations(user, setRecommendations);
   }, [user]);
   return (
-    <div className="w-full flex-col flex items-center justify-center gap-5">
+    <div className="w-full flex-col flex items-center justify-center gap-5 mt-14">
       <BackBtn />
       <h2 className="text-3xl font-normal text-center">
         Recommended Users To You
