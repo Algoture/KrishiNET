@@ -12,6 +12,9 @@ export default {
     boxShadow: {
       box: "10px 10px 40px #00000041, inset -10px -10px 40px #ffffff40",
     },
+    fontFamily: {
+      Poppins: ["Poppins", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
