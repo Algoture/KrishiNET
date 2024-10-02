@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../utils/AuthContext";
-import { FarmerDashboard } from "./Farmer/FarmerDashboard";
-import { BuyerDashboard } from "./Buyer/BuyerDashboard";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -66,11 +64,6 @@ const Profile = () => {
     <div className="w-full flex-col flex items-center justify-center gap-5 mt-5">
       <BackBtn />
       <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col mt-10">
-      {userData.role === "farmer" ? (
-          <FarmerDashboard user={user} />
-        ) : (
-          <BuyerDashboard user={user} />
-        )}
         <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5 mt-10">
           <div className="flex-1 flex flex-col gap-1.5">
             <div className="flex items-center justify-center flex-col">

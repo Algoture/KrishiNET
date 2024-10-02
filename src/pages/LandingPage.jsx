@@ -1,169 +1,127 @@
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const LandingPage = () => {
+export default function LandingPage() {
+  const navigate = useNavigate();
   return (
-    <div className="bg-primary text-black w-full">
-      <div className="container mx-auto p-4">
-        <div className="flex items-center mb-8 ">
-          <h1 className="text-3xl font-bold">
-            Krishi<span className=" text-accent">NET</span>
-          </h1>
-          <div className="flex  justify-center ">
-            <div
-              className="flex items-center bg-green-300  rounded-full px-4 py-2"
-              style={{ height: "50px", width: "500px" }}
-            >
-              <span>Solapur, Maharashtra</span>
-            </div>
-            <div className="relative">
-              <input
-                className="bg-green-300 rounded-full  text-gray-800 pl-10 focus:outline-none"
-                placeholder="Search..."
-                type="text"
-                style={{ height: "50px", width: "500px" }}
-              />
-            </div>
-          </div>
+    <div className="bg-gray-50 py-24 sm:py-32">
+      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="text-center text-base/7 font-semibold text-indigo-600">
+          Connecting Farmers & Buyers Seamlessly
+        </h2>
+        <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl">
+          Empowering <span className="text-accent">Agriculture</span> Through
+          Technology
+        </p>
+        <div className="w-full flex justify-center mt-12">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate("/login")}
+            sx={{ bgcolor: "#70e000", color: "#000" }}
+            className="w-fit text-center"
+          >
+            Get Started
+          </Button>
         </div>
-        <div className="mb-4">
-          <h2 className="text-xl  font-semibold">Categories</h2>
-          <div className="flex space-x-4 mt-2">
-            <button className=" bg-green-300 rounded-full px-4 py-2 flex items-center space-x-2">
-              <img
-                alt="Fruits"
-                className="rounded-full object-cover"
-                width="50"
-                height="50"
-                src="https://th.bing.com/th/id/R.e664b16f26647216cf8727f375b02af6?rik=WNhj5SbsXtnbwA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f2%2f2f%2fCulinary_fruits_front_view.jpg&ehk=sr%2ffErwRNU43LX0Q2RKHZov%2fci7QtR2%2fH0MZsT6o%2fC4%3d&risl=1&pid=ImgRaw&r=0"
-              />
-              <span>Fruits</span>
-            </button>
-            <button className=" bg-green-300 rounded-full px-4 py-2 flex items-center space-x-2">
-              <img
-                alt="Grains"
-                className=" rounded-full   object-cover "
-                width="50"
-                height="50"
-                src="https://th.bing.com/th/id/OIP.llTF-y5BU9FhKOj6Voom3QHaE8?rs=1&pid=ImgDetMain"
-              />
-              <span>Grains</span>
-            </button>
-            <button className=" bg-green-300 rounded-full px-4 py-2 flex items-center space-x-2">
-              <img
-                alt="Herbs"
-                className="rounded-full"
-                width="50"
-                height="50"
-                src="https://www.rd.com/wp-content/uploads/sites/2/2016/06/09-medicinal-herbs-you-can-grow-parsley.jpg"
-              />
-              <span>Herbs</span>
-            </button>
-            <button className=" bg-green-300 rounded-full px-4 py-2 flex items-center space-x-2">
-              <img
-                alt="Veggies"
-                className="rounded-full object-cover"
-                width="50"
-                height="50"
-                src="https://th.bing.com/th/id/R.e394aab04be6ce06864ded3ecda3f7e3?rik=LA2FsUbL3ciLww&riu=http%3a%2f%2fbettervitamin.com%2fwp-content%2fuploads%2f2013%2f07%2fvegetables.jpg&ehk=gCQpnbhGj9r966HCSotxcRHm6R%2b6tVvVINF%2b2WpMHdo%3d&risl=&pid=ImgRaw&r=0"
-              />
-              <span>Veggies</span>
-            </button>
-            <button className=" bg-green-300 rounded-full px-4 py-2 flex items-center space-x-2">
-              <img
-                alt="Dairy"
-                className="rounded-full object-cover"
-                width="50"
-                height="50"
-                src="https://mishry.com/wp-content/uploads/2020/08/best-dairy-products-1024x768.png"
-              />
-              <span>Dairy</span>
-            </button>
+        <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+          <div className="relative lg:row-span-2">
+            <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+              <div className="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+                <p className="mt-2 text-lg/7 font-medium tracking-tight text-gray-950 max-lg:text-center">
+                  Mobile Friendly Platform
+                </p>
+                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                  Access and manage contracts, communicate, and negotiate from
+                  anywhere with our mobile-first design.
+                </p>
+              </div>
+              <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+                <div className="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-">
+                  <img
+                    className="size-full object-cover object-top"
+                    src="https://res.cloudinary.com/dtwoxusxz/image/upload/v1727849479/sf4qvkz8gv18nftikgge.png"
+                    alt="Mobile-friendly interface"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-accent lg:rounded-l-[2rem]"></div>
           </div>
-        </div>
-        <div>
-          <h2 className="text-xl  font-semibold">Browse Products</h2>
-          <div className="grid grid-cols-4 gap-4 mt-2">
-            <div className=" text-black shadow-lg  rounded-lg p-3 border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.691Hw6NXrfwl4cskWAja_QHaFj?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> Tomatos</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">10 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
+
+          <div className="relative max-lg:row-start-1">
+            <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+              <div className="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p className="mt-2 text-lg/7 font-medium tracking-tight text-gray-950 max-lg:text-center">
+                  Local Sourcing
+                </p>
+                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                  We prioritize local farmers, ensuring fresh and readily
+                  available produce while supporting local economies.
+                </p>
+              </div>
+              <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
+                <img
+                  className="w-full max-lg:max-w-xs"
+                  src="https://tailwindui.com/plus/img/component-images/bento-03-performance.png"
+                  alt="Performance metrics"
+                />
+              </div>
             </div>
-            <div className=" text-black shadow-lg rounded-lg p-3  border-2 ">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.691Hw6NXrfwl4cskWAja_QHaFj?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> Tomatos</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">10 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
+            <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-accent max-lg:rounded-t-[2rem]"></div>
+          </div>
+
+          <div className="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+            <div className="absolute inset-px rounded-lg bg-white"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
+              <div className="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p className="mt-2 text-lg/7 font-medium tracking-tight text-gray-950 max-lg:text-center">
+                  Top-notch Security
+                </p>
+                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                  We safeguard all transactions and communications with
+                  end-to-end encryption.
+                </p>
+              </div>
+              <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2 justify-center">
+                <img
+                  className="h-[min(170px,50cqw)] w-2/3"
+                  src="https://res.cloudinary.com/dtwoxusxz/image/upload/v1727868586/bzjmnpaoiazlm4eiz6ty.png"
+                  alt="Security features"
+                />
+              </div>
             </div>
-            <div className=" text-black  shadow-lg rounded-lg p-3  border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.alMIPKoYmvrpVDhi5OEzsAHaE7?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> Wheat</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">40 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
+            <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-accent"></div>
+          </div>
+
+          <div className="relative lg:row-span-2">
+            <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+              <div className="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+                <p className="mt-2 text-lg/7 font-medium tracking-tight text-gray-950 max-lg:text-center">
+                  Personalized Recommendations
+                </p>
+                <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                  Receive crop suggestions tailored to your needs and
+                  preferences. Our smart algorithms ensure you get the best
+                  matches for your farming requirements.
+                </p>
+              </div>
+              <div className="relative min-h-[30rem] w-full">
+                <div className="absolute bottom-0 left-0 right-0 top-0 overflow-hidden rounded-tl-xl ">
+                  <div className="flex bg-gray-800/40 ring-1 ring-white/5 justify-center">
+                    <div className="-mb-px flex text-sm font-medium leading-6 text-gray-400"></div>
+                  </div>
+                  <div className="px-6 pb-14 pt-6"></div>
+                </div>
+              </div>
             </div>
-            <div className=" text-black  shadow-lg rounded-lg p-3  border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.alMIPKoYmvrpVDhi5OEzsAHaE7?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> Sorghum / जुवार</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">35 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
-            </div>
-            <div className=" text-black shadow-lg rounded-lg p-3  border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://morningchores.com/wp-content/uploads/2020/04/Growing-Rice-Planting-Guide-Care-Problems-and-Harvest-FB.jpg"
-              />
-              <h3 className="text-lg font-semibold mt-2"> Rice</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">32 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
-            </div>
-            <div className=" text-black shadow-lg rounded-lg p-3  border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.k2aJqiSfJfhewRdAOri4dAAAAA?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> onions</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">35 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
-            </div>
-            <div className=" text-black  shadow-lg rounded-lg p-3  border-2">
-              <img
-                alt="Product"
-                className="w-full h-42 object-cover rounded-lg"
-                src="https://th.bing.com/th/id/OIP.UREqz5NFjBzlr6sWlo3rPwHaE7?rs=1&pid=ImgDetMain"
-              />
-              <h3 className="text-lg font-semibold mt-2"> potato</h3>
-              <p className="mt-1">Description of the product.</p>
-              <p className="mt-1 text-xl font-semibold">20 ₹/kg</p>
-              <button className="bg-green-700 text-white rounded-full px-4 py-2 mt-2"></button>
-            </div>
+            <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-accent max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default LandingPage;
+}

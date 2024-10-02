@@ -16,12 +16,11 @@ export {
 
 // Pages:
 import HomePage from "./pages/HomePage";
-import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Error404Page from "./pages/Error404Page";
-export { HomePage, LandingPage, LoginPage, RegisterPage, Home, Error404Page };
+export { HomePage, LandingPage, LoginPage, RegisterPage, Error404Page };
 
 // Utils:
 import { AuthProvider, useAuth } from "./utils/AuthContext";

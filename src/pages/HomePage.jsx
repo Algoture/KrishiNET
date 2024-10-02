@@ -31,18 +31,18 @@ const HomePage = () => {
         </NavLink>
 
         <NavLink
-          to="/LandingPage"
+          to="/farmer"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          Farmer DashBoard
+        </NavLink>
+        <NavLink
+          to="/landingPage"
           className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Landing Page
         </NavLink>
 
-        <NavLink
-          to="/homie"
-          className="px-4 py-2 bg-accent text-black rounded-md"
-        >
-          Homie Page
-        </NavLink>
         {user ? (
           <button
             onClick={logoutUser}
