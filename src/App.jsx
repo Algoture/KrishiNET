@@ -12,7 +12,7 @@ import ContractForm from "./components/ContractForm";
 import OlaMap from "./pages/OlaMap";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./components/Profile";
-import FarmerDashboard from "./components/Farmer/FarmerDashboard";
+import BuyerDashboard from "./components/Buyer/BuyerDashboard";
 function App() {
   return (
     <Router>
@@ -26,7 +26,7 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/recommend" element={<RecommendCard />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/farmer" element={<FarmerDashboard />} />
+            <Route path="/buyer" element={<BuyerDashboard />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
             <Route path="*" element={<Error404Page />} />

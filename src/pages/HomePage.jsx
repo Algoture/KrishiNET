@@ -31,10 +31,10 @@ const HomePage = () => {
         </NavLink>
 
         <NavLink
-          to="/farmer"
+          to="/buyer"
           className="px-4 py-2 bg-accent text-black rounded-md"
         >
-          Farmer DashBoard
+          Buyer DashBoard
         </NavLink>
         {/* <NavLink
           to="/landingPage"
@@ -51,10 +51,7 @@ const HomePage = () => {
             Logout
           </button>
         ) : (
-          <NavLink
-            to="/"
-            className="px-4 py-2 bg-accent text-black rounded-md"
-          >
+          <NavLink to="/" className="px-4 py-2 bg-accent text-black rounded-md">
             Get Started
           </NavLink>
         )}
