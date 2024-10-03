@@ -5,7 +5,7 @@ import {
   LoginPage,
   RegisterPage,
   AuthProvider,
-  RecommendCard,
+  Recommendations,
   Error404Page,
 } from "./Index";
 import ContractForm from "./components/ContractForm";
@@ -24,7 +24,7 @@ function App() {
 
           <Route element={<PrivateRoutes />}>
             <Route path="/home" element={<HomePage />} />
-            <Route path="/recommend" element={<RecommendCard />} />
+            <Route path="/recommend" element={<Recommendations />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/buyer" element={<BuyerDashboard />} />
             <Route path="/contract" element={<ContractForm />} />
