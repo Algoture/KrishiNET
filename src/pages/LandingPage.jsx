@@ -64,8 +64,8 @@ export default function LandingPage() {
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
                 <img
-                  className="w-full max-lg:max-w-xs"
-                  src="https://tailwindui.com/plus/img/component-images/bento-03-performance.png"
+                  className="w-full max-lg:max-w-xs rounded-md"
+                  src="https://res.cloudinary.com/dtwoxusxz/image/upload/v1727969601/xl3gbzgaodw9gpsux8x7.png"
                   alt="Performance metrics"
                 />
               </div>
