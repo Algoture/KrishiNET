@@ -52,7 +52,7 @@ const HomePage = () => {
           </button>
         ) : (
           <NavLink
-            to="/landingPage"
+            to="/"
             className="px-4 py-2 bg-accent text-black rounded-md"
           >
             Get Started

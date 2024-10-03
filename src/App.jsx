@@ -18,12 +18,12 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/landingPage" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
 
           <Route element={<PrivateRoutes />}>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/recommend" element={<RecommendCard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/farmer" element={<FarmerDashboard />} />

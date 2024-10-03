@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/home");
     }
   }, []);
   const handleSubmit = async (e) => {
