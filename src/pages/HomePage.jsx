@@ -36,12 +36,12 @@ const HomePage = () => {
         >
           Farmer DashBoard
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/landingPage"
           className="px-4 py-2 bg-accent text-black rounded-md"
         >
           Landing Page
-        </NavLink>
+        </NavLink> */}
 
         {user ? (
           <button
@@ -52,10 +52,10 @@ const HomePage = () => {
           </button>
         ) : (
           <NavLink
-            to="/login"
+            to="/landingPage"
             className="px-4 py-2 bg-accent text-black rounded-md"
           >
-            Login
+            Get Started
           </NavLink>
         )}
 

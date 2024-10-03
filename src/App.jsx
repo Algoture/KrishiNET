@@ -18,11 +18,11 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
+          <Route path="/landingPage" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
 
           <Route element={<PrivateRoutes />}>
-            <Route path="/landingPage" element={<LandingPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/recommend" element={<RecommendCard />} />
             <Route path="/profile" element={<Profile />} />
