@@ -5,17 +5,12 @@ const BuyerDashboard = ({ user }) => {
   return (
     <div className="bg-primary text-black w-full ">
       <div className="p-4 w-full">
-        <div className="flex items-center mb-8 ">
+        <div className="flex items-center mb-8 justify-between">
           <h1 className="text-3xl font-bold">
             Krishi<span className=" text-accent">NET</span>
           </h1>
-          <div className="flex  justify-center ">
-            <div className="flex items-center bg-green-300  rounded-full px-4 py-2">
-              <span>Solapur, Maharashtra</span>
-            </div>
-            <div className="relative">
-              <SearchBar />
-            </div>
+          <div className="relative">
+            <SearchBar />
           </div>
         </div>
         <div className="mb-4">
