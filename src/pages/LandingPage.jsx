@@ -15,7 +15,7 @@ export default function LandingPage() {
         </h1>
         <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-5xl font-medium tracking-tight ">
           Empowering{" "}
-          <span className="text-accent font-Sat lg:text-8xl sm:text-5xl tracking-tight underline-offset-1">
+          <span className="text-accent font-Sat lg:text-8xl sm:text-6xl tracking-tight">
             Agriculture
           </span>{" "}
           through Technology
