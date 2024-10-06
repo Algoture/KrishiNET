@@ -1,20 +1,24 @@
-import { Button } from "@mui/material";
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function LandingPage() {
-  const navigate = useNavigate();
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-center text-base/7 font-semibold text-indigo-600">
+    <div className="bg-white py-24 sm:py-32">
+      <NavLink
+        to="/home"
+        className="text-3xl font-semibold absolute left-8 top-8 font-Poppins"
+      >
+        Krishi<span className="text-accent">NET</span>
+      </NavLink>
+      <div className="max-w-2xl px-6 lg:max-w-7xl lg:px-8 ">
+        <h1 className="text-center text-base/7 font-semibold text-indigo-600">
           Connecting Farmers & Buyers Seamlessly
-        </h2>
+        </h1>
         <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-5xl font-medium tracking-tight ">
           Empowering{" "}
-          <span className="text-accent font-Sat lg:text-8xl sm:text-5xl tracking-tight">
+          <span className="text-accent font-Sat lg:text-8xl sm:text-5xl tracking-tight underline-offset-1">
             Agriculture
           </span>{" "}
-          Through Technology
+          through Technology
         </p>
         <div className="w-full flex justify-center mt-12">
           <NavLink
@@ -31,9 +35,9 @@ export default function LandingPage() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 ></path>
               </svg>
