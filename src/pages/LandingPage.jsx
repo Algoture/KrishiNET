@@ -84,11 +84,7 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
-                <img
-                  className="w-full max-lg:max-w-xs rounded-md"
-                  src="https://res.cloudinary.com/dtwoxusxz/image/upload/v1727969601/xl3gbzgaodw9gpsux8x7.png"
-                  alt="Performance metrics"
-                />
+                <iframe src="https://lottie.host/embed/f6b3d945-d207-4c63-88f0-ffd1c26c64bb/5DS0RUv5yi.json"></iframe>
               </div>
             </div>
             <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-accent max-lg:rounded-t-[2rem]"></div>
@@ -135,7 +131,9 @@ export default function LandingPage() {
                   <div className="flex bg-gray-800/40 ring-1 ring-white/5 justify-center">
                     <div className="-mb-px flex text-sm font-medium leading-6 text-gray-400"></div>
                   </div>
-                  <div className="px-6 pb-14 pt-6"></div>
+                  <div className="px-6 pb-14 pt-6 flex justify-center items-center">
+                    <iframe className="w-full h-56" src="https://lottie.host/embed/63c961ab-8566-4b20-b3b8-c4b13c464941/Uv3g8H272w.json"></iframe>
+                  </div>
                 </div>
               </div>
             </div>
