@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -9,20 +9,37 @@ export default function LandingPage() {
         <h2 className="text-center text-base/7 font-semibold text-indigo-600">
           Connecting Farmers & Buyers Seamlessly
         </h2>
-        <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Empowering <span className="text-accent">Agriculture</span> Through
-          Technology
+        <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-5xl font-medium tracking-tight ">
+          Empowering{" "}
+          <span className="text-accent font-Sat lg:text-8xl sm:text-5xl tracking-tight">
+            Agriculture
+          </span>{" "}
+          Through Technology
         </p>
         <div className="w-full flex justify-center mt-12">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => navigate("/login")}
-            sx={{ bgcolor: "#70e000", color: "#000" }}
-            className="w-fit text-center"
+          <NavLink
+            to="/login"
+            className="bg-accent relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600  rounded-xl hover:text-white group hover:bg-gray-50"
           >
-            Get Started
-          </Button>
+            <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+            <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </span>
+            <span className="relative">Get Started</span>
+          </NavLink>
         </div>
         <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
           <div className="relative lg:row-span-2">

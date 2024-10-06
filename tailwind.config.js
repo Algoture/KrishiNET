@@ -15,7 +15,11 @@ export default {
     fontFamily: {
       Poppins: ["Poppins", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        Sat: ["Satisfy", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
