@@ -62,6 +62,18 @@ const HomePage = () => {
         >
           Get Recommendations
         </NavLink>
+        <NavLink
+          to="/feed"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          user feed
+        </NavLink>
+        <NavLink
+          to="/newpost"
+          className="px-4 py-2 bg-accent text-black rounded-md"
+        >
+          New Post
+        </NavLink>
       </div>
     </div>
   );

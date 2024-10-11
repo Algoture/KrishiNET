@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { account, databaseId, collectionId, databases } from "./appwriteConfig";
 import { ID } from "appwrite";
-import { CircularProgress} from "@mui/material";
+import { CircularProgress } from "@mui/material";
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);

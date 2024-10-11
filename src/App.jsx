@@ -13,6 +13,8 @@ import OlaMap from "./pages/OlaMap";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./components/Profile";
 import BuyerDashboard from "./components/Buyer/BuyerDashboard";
+import Feeds from "./components/Feeds";
+import PostForm from "./components/Form/PostForm";
 function App() {
   return (
     <Router>
@@ -29,6 +31,8 @@ function App() {
             <Route path="/buyer" element={<BuyerDashboard />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
+            <Route path="/feed" element={<Feeds />} />
+            <Route path="/newpost" element={<PostForm />} />
             <Route path="*" element={<Error404Page />} />
           </Route>
         </Routes>
