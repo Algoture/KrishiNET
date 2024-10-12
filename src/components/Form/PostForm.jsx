@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ID, Query } from 'appwrite';
 import { useAuth } from '../../utils/AuthContext';
-import { databaseId, databases, postCollection, collectionId } from '../../utils/appwriteConfig';
+import { databaseId, databases, postCollection, storageBucketId, collectionId } from '../../utils/appwriteConfig';
+import { storage } from '../../utils/appwriteConfig';
+import BackBtn from '../BackBtn';
+
 
 const PostForm = () => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [userData, setUserData] = useState(null);
+    const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -19,7 +23,6 @@ const PostForm = () => {
                     databaseId,
                     collectionId,
                     [Query.equal('userId', user.$id)]
-
                 );
 
                 if (response.documents.length > 0) {
@@ -41,6 +44,10 @@ const PostForm = () => {
         fetchUserData();
     }, [user]);
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -60,19 +67,30 @@ const PostForm = () => {
         };
 
         try {
+            let fileUrl = '';
+            if (file) {
+                const fileResponse = await storage.createFile(storageBucketId, ID.unique(), file);
+                fileUrl = fileResponse.$id; // Get the file ID after upload
+            }
+
+            postDetails.fileUrl = fileUrl;
+
             const response = await databases.createDocument(databaseId, postCollection, postId, postDetails);
             setSuccess('Post created successfully!');
             console.log(response);
             setDescription('');
             setCategory('');
+            setFile(null);
         } catch (error) {
             console.error('Failed to create post:', error);
             setError('Failed to create post. Please try again.');
         }
+        
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <BackBtn />
             <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-semibold text-center text-gray-700 mb-4">Create a Post</h2>
 
@@ -100,9 +118,19 @@ const PostForm = () => {
                             required
                         />
                     </div>
+                    <div>
+                        <label className="block text-gray-700 text-sm font-medium">Upload Image/Video</label>
+                        <input
+                            type="file"
+                            accept="image/*,video/*"
+                            onChange={handleFileChange}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100"
+                        />
+                    </div>
                     <button
                         type="submit"
-                        className="w-32  bg-indigo-600 text-black py-2 border border-gray-300 rounded-md hover:bg-indigo-500 transition duration-300"
+                        className="bg-accent relative inline-flex items-center px-6 py-2 overflow-hidden text-lg font-medium text-indigo-600  rounded-xl hover:text-white group hover:bg-gray-50"
+                        
                     >
                         Create Post
                     </button>
