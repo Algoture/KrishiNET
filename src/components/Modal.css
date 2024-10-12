@@ -1,0 +1,35 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000; /* Make sure it's on top of other content */
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%; /* Make sure it doesn't exceed viewport width */
+    max-height: 90%; /* Make sure it doesn't exceed viewport height */
+    overflow: hidden; /* Hide overflow to avoid scrolling */
+}
+
+.modal-image {
+    width: 100%; /* Make the image take full width of the modal */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.modal-close {
+    position: absolute; /* Positioning for the close button */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background: none; /* No background */
+    border: none; /* No border */
+    color: white; /* White text for visibility */
+    font-size: 24px; /* Size of the close button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
