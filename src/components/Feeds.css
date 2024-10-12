@@ -12,15 +12,14 @@
     margin-bottom: 20px;
 }
 
-.error-message {
-    color: red;
-}
-
 .feed-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Set to 3 columns */
+    gap: 20px; /* Space between posts */
     width: 100%;
+    max-width: 1200px; /* Limit maximum width */
+    margin: 0 auto; /* Center the grid */
+    padding: 0 20px; /* Optional: Space on left and right */
 }
 
 .feed-post {
@@ -50,15 +49,17 @@
     padding: 10px;
 }
 
-.post-date, .post-category {
+.post-date,
+.post-category {
     color: #888;
     font-size: 12px;
 }
 
 .post-image {
     width: 100%;
-    height: auto;
+    height: auto; /* Ensures that images maintain aspect ratio */
     border-top: 1px solid #ddd;
+    object-fit: cover; /* Keeps the aspect ratio and fills the space */
 }
 
 .post-actions {
@@ -94,7 +95,6 @@
 }
 
 .comment-button {
-    
     color: white;
     border: none;
     padding: 5px 10px;

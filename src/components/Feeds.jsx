@@ -3,7 +3,6 @@ import { databases, databaseId, postCollection, account } from '../utils/appwrit
 import './Feeds.css'; // Assuming you have a CSS file for styles
 import BackBtn from './BackBtn'; // Adjust the path as needed
 
-
 const Feeds = () => {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
@@ -29,12 +28,14 @@ const Feeds = () => {
         try {
             const response = await databases.listDocuments(databaseId, postCollection);
             const sortedPosts = response.documents.sort((a, b) => new Date(b.$createdAt) - new Date(a.$createdAt));
+            console.log(sortedPosts); // Log the fetched posts to check their structure
             setPosts(sortedPosts);
         } catch (error) {
             console.error('Failed to fetch posts:', error);
             setError('Failed to load posts. Please try again.');
         }
     };
+    
 
     const handleLike = async (postId) => {
         const post = posts.find((p) => p.postId === postId);
@@ -58,26 +59,25 @@ const Feeds = () => {
     const handleAddComment = async (postId) => {
         const commentText = commentTexts[postId];
         if (!commentText || !commentText.trim()) return;
-
-        const comment = {
-            userId: currentUserId,
-            text: commentText.trim(),
-        };
-
+    
         try {
             const post = posts.find((p) => p.postId === postId);
-            const updatedComments = [...(post.comments || []), comment];
-
+            // Ensure comments is an array of strings
+            const updatedComments = [...(post.comments || []), commentText.trim()];
+    
             await databases.updateDocument(databaseId, postCollection, postId, {
-                comments: updatedComments,
+                comments: updatedComments, // Update with the array of strings
             });
+            
+            // Clear the input field for the current post
             setCommentTexts(prev => ({ ...prev, [postId]: '' }));
-            fetchPosts();
+            fetchPosts(); // Fetch posts to update the UI
         } catch (error) {
             console.error('Failed to update comments:', error);
             setError('Failed to update comments. Please try again.');
         }
     };
+    
 
     return (
         <div className="feed-container">
@@ -126,13 +126,17 @@ const Feeds = () => {
                             </div>
                         </div>
                         <div className="comments-section">
-                            {post.comments && post.comments.map((comment, index) => (
-                                <div key={index} className="comment">
-                                    <span className="comment-user">{comment.userId}:</span>
-                                    <span className="comment-text">{comment.text}</span>
-                                </div>
-                            ))}
-                        </div>
+    {post.comments && post.comments.length > 0 ? (
+        post.comments.map((comment, index) => (
+            <div key={index} className="comment">
+                <span className="comment-text">{comment}</span>
+            </div>
+        ))
+    ) : (
+        <p>No comments yet.</p> // Optional: display a message if there are no comments
+    )}
+</div>
+
                     </div>
                 ))}
             </div>
