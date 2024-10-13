@@ -6,8 +6,9 @@ import {
   account,
 } from "../utils/appwriteConfig";
 import "../style/Feeds.css";
-import BackBtn from "./BackBtn";
+import BackBtn from "../components/UI/BackBtn";
 import Modal from "./Modal";
+import Sample from "./Sample";
 
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
@@ -77,45 +78,19 @@ const Feeds = () => {
   };
 
   return (
-    <div className="feed-container">
+    <div className="flex flex-col items-center p-2 bg-primary ">
       <BackBtn />
-      <h2 className="feed-title">Feeds</h2>
+      <h2 className="text-2xl mb-5 mt-10">Feeds</h2>
       {error && <p className="error-message">{error}</p>}
-      <div className="feed-grid">
+      <div className="flex gap-4 flex-wrap min-w-80 max-w-96 ">
         {posts.map((post) => (
-          <div key={post.postId} className="feed-post">
-            <div className="post-header">
-              <h3 className="post-name">{post.name}</h3>
-              <p className="post-role">{post.role}</p>
-            </div>
-            <p className="post-description">{post.description}</p>
-            <p className="post-date pl-2">
-              {new Date(post.$createdAt).toLocaleString()}
-            </p>
-            <p className="post-category pl-2">Category: {post.category}</p>
-            {post.fileUrl && (
-              <img
-                src={`https://cloud.appwrite.io/v1/storage/buckets/670a9efd00256f9547db/files/${post.fileUrl}/view?project=krishinet`}
-                alt={post.description}
-                className="mt-2 w-full h-auto rounded-lg p-5"
-                onClick={() =>
-                  openModal(
-                    `https://cloud.appwrite.io/v1/storage/buckets/670a9efd00256f9547db/files/${post.fileUrl}/view?project=krishinet`
-                  )
-                }
-              />
-            )}
-            <div className="post-actions">
-              <button
-                className={`like-button ${
-                  post.likes.includes(currentUserId) ? "liked" : ""
-                }`}
-                onClick={() => handleLike(post.postId)}
-              >
-                {post.likes.includes(currentUserId) ? "❤️ Liked" : "🤍 Like"}
-              </button>
-            </div>
-          </div>
+          <Sample
+            key={post.$id}
+            {...post}
+            cropName={post.cropname}
+            currentUserId={currentUserId}
+            handleLike={handleLike}
+          />
         ))}
       </div>
       <Modal

@@ -8,18 +8,22 @@ import {
   storageBucketId,
   collectionId,
 } from "../../utils/appwriteConfig";
+import InputField from "../Form/InputField";
 import { storage } from "../../utils/appwriteConfig";
-import BackBtn from "../BackBtn";
+import BackBtn from "../UI/BackBtn";
 import InputFileUpload from "./InputFileUpload";
-import SubmitBtn from '../Form/SubmitBtn'
+import SubmitBtn from "../Form/SubmitBtn";
 const PostForm = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [cropName, setCropName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [price, setPrice] = useState("");
   const [userData, setUserData] = useState(null);
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-
+  const [quantity, setQuantity] = useState("");
   const { user } = useAuth();
 
   const fetchUserData = async () => {
@@ -56,18 +60,22 @@ const PostForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (!userData) {
       setError("User data not available. Please try again.");
       return;
     }
-
     const postId = ID.unique();
     const postDetails = {
       userId: userData.$id,
       role: userData.role,
       name: userData.name,
+      city: userData.city,
+      state: userData.state,
       postId: postId,
+      price: price,
+      quantity: quantity,
+      cropname: cropName,
       description: description,
       category: category,
     };
@@ -80,21 +88,24 @@ const PostForm = () => {
           ID.unique(),
           file
         );
-        fileUrl = fileResponse.$id; // Get the file ID after upload
+        fileUrl = fileResponse.$id;
       }
 
       postDetails.fileUrl = fileUrl;
-
-      const response = await databases.createDocument(
+      await databases.createDocument(
         databaseId,
         postCollection,
         postId,
         postDetails
       );
       setSuccess("Post created successfully!");
-      console.log(response);
+      setLoading(false);
+      // console.log(response);
       setDescription("");
       setCategory("");
+      setCropName("");
+      setPrice("");
+      setQuantity("");
       setFile(null);
     } catch (error) {
       console.error("Failed to create post:", error);
@@ -116,37 +127,40 @@ const PostForm = () => {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 text-sm font-medium">
-              Description
-            </label>
-            <input
-              type="text"
+          <div className="flex flex-col gap-4">
+            <InputField
+              label="Crop Name"
+              value={cropName}
+              onChange={(e) => setCropName(e.target.value)}
+            />
+            <InputField
+              label="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100"
-              required
             />
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-medium">
-              Category
-            </label>
-            <input
-              type="text"
+            <InputField
+              label="Price of Crop per Kg"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <InputField
+              label="Quantity of Crop in Kg"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <InputField
+              label="Category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100"
-              required
             />
           </div>
           <div>
             <label className="block text-gray-700 text-sm font-medium">
-              Upload Image/Video
+              Upload Crop Image/Video
             </label>
             <InputFileUpload handleChange={handleFileChange} />
           </div>
-          <SubmitBtn text="Create Post"/>
+          <SubmitBtn text="Create Post" loading={loading} />
         </form>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { getRecommendations, useAuth, BackBtn } from "../../Index";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
-import RecomCard from "../RecomCard";
+import RecomCard from "./RecomCard";
 const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   const { user } = useAuth();

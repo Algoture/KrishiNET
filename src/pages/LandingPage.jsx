@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Btn from "../components/Btn";
+import Btn from "../components/UI/Btn";
 export default function LandingPage() {
   return (
     <div className="bg-white py-24 sm:py-32">
