@@ -9,9 +9,8 @@ export default {
         primary: "#F4F4F4",
         white: "#ffffff",
         bred: "#d90429",
-        // Extend the default green color palette
         green: {
-          50: '#f0fdf4',  // Light green
+          50: '#f0fdf4',
           100: '#dcfce7',
           200: '#bbf7d0',
           300: '#86efac',

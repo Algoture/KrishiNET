@@ -1,6 +1,5 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
-import "../style/index.css";
 import SmartContract from "./SmartContract";
 const ContractForm = () => {
   const [cropType, setCropType] = useState("");

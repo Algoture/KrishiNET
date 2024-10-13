@@ -1,4 +1,4 @@
-import { getRecommendations, useAuth, BackBtn } from "../Index";
+import { getRecommendations, useAuth, BackBtn } from "../../Index";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import RecomCard from "./RecomCard";
