@@ -97,7 +97,7 @@ const RegisterPage = () => {
 
   return (
     <div className="relative flex items-center justify-center w-full h-full min-h-screen bg-gray-100 p-8">
-      <div className="bg-white items-center p-8 rounded-lg shadow-box w-[30rem]">
+      <div className="bg-white items-center p-8 rounded-lg shadow-box w-[30rem] z-10">
         <h1 className="text-3xl font-semibold text-left">Sign Up</h1>
         <p className="text-gray-600 mb-6">to get started</p>
 
@@ -176,7 +176,7 @@ const RegisterPage = () => {
       <img
         src="signUp.png"
         alt="signUpImg"
-        className="absolute right-0 bottom-0 z-50"
+        className="absolute right-0 h-full bottom-0-z-50"
       />
     </div>
   );

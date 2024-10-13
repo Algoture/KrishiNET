@@ -28,7 +28,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-box w-96 relative">
+      <div className="bg-white p-8 rounded-lg shadow-box w-96   z-10">
         <h1 className="text-3xl font-semibold mb-2 text-center">Login</h1>
         <form
           className="flex flex-col gap-4"
@@ -59,7 +59,7 @@ const LoginPage = () => {
       <img
         src="signIn.png"
         alt="signInImg"
-        className="absolute right-0 h-full bottom-0 z-50"
+        className="absolute right-0 h-full bottom-0-z-50"
       />
     </div>
   );
