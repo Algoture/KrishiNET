@@ -1,4 +1,4 @@
-const cropData = [
+export const cropData = [
   {
     image:
       "https://t3.ftcdn.net/jpg/00/99/63/26/240_F_99632691_11tjDNFTAqwLSQ6gerHCXvfjaUFWOaoG.jpg",
@@ -60,5 +60,75 @@ const cropData = [
     quantity: 400,
   },
 ];
-
-export default cropData;
+export const cropsCategories = [
+  {
+    id: 1,
+    name: "Cereals & Grains",
+    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/006_wheat_sack_80f6f0f6db.png",
+  },
+  {
+    id: 2,
+    name: "Fruits",
+    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/003_orange_984217ca48.png",
+  },
+  {
+    id: 3,
+    name: "Vegetables",
+    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/004_vegetables_5494192878.png",
+  },
+  {
+    id: 4,
+    name: "Legumes & Pulses",
+    src: "https://png.pngtree.com/png-vector/20231101/ourmid/pngtree-red-lentils-in-a-bowl-from-above-protein-png-image_10389107.png",
+  },
+  {
+    id: 5,
+    name: "Oilseeds",
+    src: null,
+  },
+  {
+    id: 6,
+    name: "Spices",
+    src: "https://png.pngtree.com/png-vector/20240202/ourmid/pngtree-pieces-of-cooking-spices-png-png-image_11591592.png",
+  },
+  {
+    id: 7,
+    name: "Herbs",
+    src: "https://www.rd.com/wp-content/uploads/sites/2/2016/06/09-medicinal-herbs-you-can-grow-parsley.jpg",
+  },
+  {
+    id: 8,
+    name: "Plantation Crops",
+    src: null,
+  },
+  {
+    id: 9,
+    name: "Fibers",
+    src: null,
+  },
+  {
+    id: 10,
+    name: "Medicinal & Aromatic Plants",
+    src: null,
+  },
+  {
+    id: 11,
+    name: "Fodder Crops",
+    src: null,
+  },
+  {
+    id: 12,
+    name: "Sugar Crops",
+    src: null,
+  },
+  {
+    id: 13,
+    name: "Nuts & Seeds",
+    src: null,
+  },
+  {
+    id: 14,
+    name: "Dairy",
+    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/005_milk_d2274408c0.png",
+  },
+];

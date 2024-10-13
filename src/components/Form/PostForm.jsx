@@ -13,6 +13,7 @@ import { storage } from "../../utils/appwriteConfig";
 import BackBtn from "../UI/BackBtn";
 import InputFileUpload from "./InputFileUpload";
 import SubmitBtn from "../Form/SubmitBtn";
+import CategorySelect from "./CategorySelect";
 const PostForm = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -56,6 +57,9 @@ const PostForm = () => {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+  };
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -148,10 +152,9 @@ const PostForm = () => {
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
-            <InputField
-              label="Category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+            <CategorySelect
+              category={category}
+              onChange={handleCategoryChange}
             />
           </div>
           <div>
