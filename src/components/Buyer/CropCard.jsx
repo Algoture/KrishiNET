@@ -12,49 +12,56 @@ export default function CropCard({
   quantity,
 }) {
   return (
-    <div className="w-full sm:w-32 lg:w-56 max-w-sm bg-white shadow-box rounded-lg">
-      <div className="w-full h-40 overflow-hidden">
+    <div className=" bg-white p-2 md:p-6
+    flex flex-col gap-3 border rounded-lg
+    hover:scale-105 hover:shadow-lg
+    transition-all ease-in-out cursor-pointer  ">
+      <div className="w-full h-40 overflow-hidden rounded-lg">
         <img
-          className="p-2 h-40 w-full rounded-2xl object-cover"
+          className="h-100 w-full object-cover"
           src={img}
           alt={name}
         />
       </div>
-      <div className="px-2 pb-5">
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+      <div className="mt-4">
+        <h5 className="text-lg font-bold text-gray-900">
           {name}
         </h5>
-        <div className="flex items-center">
+        <div className="flex items-center mt-2">
           <Rating
             name="read-only"
             value={rating}
             precision={0.1}
-            size="medium"
+            size="small"
             readOnly
           />
         </div>
         <div className="flex items-center mt-2">
-          <PersonIcon />
-          <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+          <PersonIcon className="text-gray-600" />
+          <span className="text-sm text-gray-800 ml-1">
             {farmerName}
           </span>
         </div>
-        <div className="flex items-center">
-          <PlaceIcon />
-          <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <div className="flex items-center mt-2">
+          <PlaceIcon className="text-gray-600" />
+          <span className="text-sm text-gray-800 ml-1">
             {location}
           </span>
         </div>
-        <div className="flex items-center mt-2">
-          <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <div className="mt-2">
+          <span className="text-sm font-semibold text-gray-600">
             Upto {quantity}kg
           </span>
         </div>
-        <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between mt-4">
+          <span className=" text-2xl font-semibold text-green-700">
             ₹{price}/kg
           </span>
-          <Button variant="contained" sx={{ bgcolor: "#70e000" }} size="small">
+          <Button
+            variant="contained"
+            sx={{ bgcolor: "#70e000" }}
+            size="small"
+          >
             Buy
           </Button>
         </div>

@@ -43,23 +43,28 @@ const BuyerDashboard = ({ user }) => {
           </div>
         </div>
 
-        <div className="w-full">
-          <h2 className="text-xl font-semibold">Browse Products</h2>
-          <div className="w-full flex gap-4 flex-wrap">
-            {cropData.map((crop, index) => (
-              <CropCard
-                key={index}
-                img={crop.image}
-                name={crop.name}
-                price={crop.price}
-                farmerName={crop.farmerName}
-                location={crop.location}
-                rating={crop.rating}
-                quantity={crop.quantity}
-              />
-            ))}
-          </div>
+        <div className='mt-10'>
+        <h2 className='text-green-600 font-bold text-2xl'>Our Popular Products</h2>
+        <div className='grid
+        grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4
+        gap-5 mt-6'>
+     {cropData.map((crop, index) => (
+      <CropCard
+        key={index}
+        img={crop.image}
+        name={crop.name}
+        price={crop.price}
+        farmerName={crop.farmerName}
+        location={crop.location}
+        quantity={crop.quantity}
+        rating={crop.rating}
+      />
+    ))}
+    
         </div>
+    </div>
       </div>
     </div>
   );
