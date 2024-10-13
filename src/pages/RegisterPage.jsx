@@ -176,7 +176,7 @@ const RegisterPage = () => {
       <img
         src="signUp.png"
         alt="signUpImg"
-        className="absolute right-0 bottom-0 -z-50"
+        className="absolute right-0 bottom-0 z-50"
       />
     </div>
   );

@@ -59,7 +59,7 @@ const LoginPage = () => {
       <img
         src="signIn.png"
         alt="signInImg"
-        className="absolute right-0 h-full bottom-0 -z-50"
+        className="absolute right-0 h-full bottom-0 z-50"
       />
     </div>
   );
