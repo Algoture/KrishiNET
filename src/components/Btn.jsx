@@ -4,9 +4,9 @@ const Btn = ({ to, text }) => {
   return (
     <NavLink
       to={to}
-      className="bg-accent relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600  rounded-xl hover:text-white group hover:bg-gray-50"
+      className="bg-accent relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium  rounded-xl hover:text-white group hover:bg-gray-50"
     >
-      <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+      <span className="absolute left-0 block w-full h-0 transition-all bg-black opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
       <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
         <svg
           className="w-5 h-5"

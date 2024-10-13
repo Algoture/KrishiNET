@@ -8,7 +8,7 @@ import {
   Recommendations,
   Error404Page,
 } from "./Index";
-import ContractForm from "./components/ContractForm";
+import ContractForm from "./components/Contract/ContractForm";
 import OlaMap from "./pages/OlaMap";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Profile from "./components/Profile";

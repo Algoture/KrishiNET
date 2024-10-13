@@ -10,7 +10,7 @@ export default function LandingPage() {
         Krishi<span className="text-accent">NET</span>
       </NavLink>
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 ">
-        <h1 className="text-center text-base/7 font-semibold text-indigo-600">
+        <h1 className="text-center text-base/7 font-semibold">
           Connecting Farmers & Buyers Seamlessly
         </h1>
         <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-5xl font-medium tracking-tight ">

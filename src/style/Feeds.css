@@ -14,12 +14,12 @@
 
 .feed-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Set to 3 columns */
-    gap: 20px; /* Space between posts */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
     width: 100%;
-    max-width: 1200px; /* Limit maximum width */
-    margin: 0 auto; /* Center the grid */
-    padding: 0 20px; /* Optional: Space on left and right */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
 }
 
 .feed-post {
@@ -57,9 +57,9 @@
 
 .post-image {
     width: 100%;
-    height: auto; /* Ensures that images maintain aspect ratio */
+    height: auto;  
     border-top: 1px solid #ddd;
-    object-fit: cover; /* Keeps the aspect ratio and fills the space */
+    object-fit: cover;
 }
 
 .post-actions {
