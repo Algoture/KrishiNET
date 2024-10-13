@@ -13,7 +13,6 @@ const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null);
-  const [commentTexts, setCommentTexts] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageUrl, setCurrentImageUrl] = useState("");
 
@@ -67,26 +66,6 @@ const Feeds = () => {
     }
   };
 
-  const handleAddComment = async (postId) => {
-    const commentText = commentTexts[postId];
-    if (!commentText || !commentText.trim()) return;
-
-    try {
-      const post = posts.find((p) => p.postId === postId);
-      const updatedComments = [...(post.comments || []), commentText.trim()];
-
-      await databases.updateDocument(databaseId, postCollection, postId, {
-        comments: updatedComments,
-      });
-
-      setCommentTexts((prev) => ({ ...prev, [postId]: "" }));
-      fetchPosts();
-    } catch (error) {
-      console.error("Failed to update comments:", error);
-      setError("Failed to update comments. Please try again.");
-    }
-  };
-
   const openModal = (imageUrl) => {
     setCurrentImageUrl(imageUrl);
     setIsModalOpen(true);
@@ -135,40 +114,6 @@ const Feeds = () => {
               >
                 {post.likes.includes(currentUserId) ? "❤️ Liked" : "🤍 Like"}
               </button>
-              <div className="comment-input-container">
-                <input
-                  type="text"
-                  placeholder="Add a comment..."
-                  value={commentTexts[post.postId] || ""}
-                  onChange={(e) =>
-                    setCommentTexts((prev) => ({
-                      ...prev,
-                      [post.postId]: e.target.value,
-                    }))
-                  }
-                  className="comment-input"
-                  onKeyDown={(e) =>
-                    e.key === "Enter" && handleAddComment(post.postId)
-                  }
-                />
-                <button
-                  className="comment-button bg-accent"
-                  onClick={() => handleAddComment(post.postId)}
-                >
-                  Comment
-                </button>
-              </div>
-            </div>
-            <div className="comments-section">
-              {post.comments && post.comments.length > 0 ? (
-                post.comments.map((comment, index) => (
-                  <div key={index} className="comment">
-                    <span className="comment-text">{comment}</span>
-                  </div>
-                ))
-              ) : (
-                <p>No comments yet.</p>
-              )}
             </div>
           </div>
         ))}
