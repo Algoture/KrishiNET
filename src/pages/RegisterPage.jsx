@@ -23,6 +23,7 @@ const RegisterPage = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { user, registerUser } = useAuth();
   const navigate = useNavigate();
   const [stateList, setStateList] = useState([]);
@@ -71,6 +72,7 @@ const RegisterPage = () => {
       userType,
       coordinates,
     };
+    setLoading(true);
     registerUser(userInfo);
   };
 
@@ -168,7 +170,7 @@ const RegisterPage = () => {
             label="Agree to our terms and conditions"
             required
           />
-          <SubmitBtn text="Register" />
+          <SubmitBtn text="Register" loading={loading} />
         </form>
 
         <Already log={false} />

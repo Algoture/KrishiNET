@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
-const SubmitBtn = ({ text }) => {
+
+const SubmitBtn = ({ text, loading }) => {
   return (
     <Button
       type="submit"
@@ -8,7 +9,7 @@ const SubmitBtn = ({ text }) => {
       sx={{ backgroundColor: "#70e000", color: "black" }}
       className="w-full p-3 rounded-lg"
     >
-      {text}
+      {loading ? <div className="loader"></div> : text}
     </Button>
   );
 };

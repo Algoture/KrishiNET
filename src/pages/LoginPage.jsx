@@ -7,6 +7,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [showPassword, setshowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { user, loginUser } = useAuth();
   const Loginform = useRef(null);
@@ -15,9 +16,10 @@ const LoginPage = () => {
     if (user) {
       navigate("/home");
     }
-  }, []);
+  }, [user, navigate]);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const userInfo = { email, password };
     try {
       await loginUser(userInfo);
@@ -52,7 +54,7 @@ const LoginPage = () => {
             Forgot Password?
           </NavLink>
 
-          <SubmitBtn text="Login" />
+          <SubmitBtn text="Login" loading={loading} />
         </form>
         <Already log={true} />
       </div>

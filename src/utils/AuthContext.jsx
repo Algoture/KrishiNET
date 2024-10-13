@@ -2,10 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { account, databaseId, collectionId, databases } from "./appwriteConfig";
 import { ID } from "appwrite";
 import { CircularProgress } from "@mui/material";
+
 const AuthContext = createContext();
+
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     checkUserStatus();
@@ -13,18 +16,17 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (userInfo) => {
     setLoading(true);
-    // console.log("User Info: ", userInfo);
-    console.log("User Login Done");
+    setError(null);
     try {
-      let response = await account.createEmailPasswordSession(
+      await account.createEmailPasswordSession(
         userInfo.email,
         userInfo.password
       );
       let accountDetails = await account.get();
       setUser(accountDetails);
-      // console.log("accountDetails: ", accountDetails);
     } catch (error) {
       console.error("Error during login:", error);
+      setError("Login failed. Please check your credentials.");
     } finally {
       setLoading(false);
     }
@@ -32,12 +34,12 @@ export const AuthProvider = ({ children }) => {
 
   const logoutUser = async () => {
     await account.deleteSession("current");
-    console.log("User Logged Out");
-    setUser(false);
+    setUser(null);
   };
 
   const registerUser = async (userInfo) => {
     setLoading(true);
+    setError(null);
     try {
       await account.create(
         ID.unique(),
@@ -48,15 +50,12 @@ export const AuthProvider = ({ children }) => {
         userInfo.state,
         userInfo.phone
       );
-
       await account.createEmailPasswordSession(
         userInfo.email,
         userInfo.password1
       );
-
       let accountDetails = await account.get();
       setUser(accountDetails);
-
       await databases.createDocument(databaseId, collectionId, ID.unique(), {
         userId: accountDetails.$id,
         name: userInfo.name,
@@ -67,22 +66,25 @@ export const AuthProvider = ({ children }) => {
         email: userInfo.email,
         coordinates: userInfo.coordinates,
       });
-
-      console.log("User profile saved: ");
     } catch (error) {
-      console.error(error);
+      console.error("Registration failed:", error);
+      setError("Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const checkUserStatus = async () => {
+    setLoading(true);
     try {
       let accountDetails = await account.get();
       setUser(accountDetails);
     } catch (error) {
-      console.error(error);
+      console.error("Error checking user status:", error);
+      setUser(null);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const contextData = {
@@ -90,18 +92,11 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     registerUser,
+    error,
   };
 
   return (
-    <AuthContext.Provider value={contextData}>
-      {loading ? (
-        <div className="w-full flex items-center justify-center h-screen">
-          <CircularProgress />
-        </div>
-      ) : (
-        children
-      )}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
   );
 };
 
