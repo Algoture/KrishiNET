@@ -84,7 +84,7 @@ export const cropsCategories = [
   {
     id: 5,
     name: "Oilseeds",
-    src: null,
+    src: "https://www.pngarts.com/files/4/Sunflower-Seeds-PNG-Image.png",
   },
   {
     id: 6,
@@ -94,7 +94,7 @@ export const cropsCategories = [
   {
     id: 7,
     name: "Herbs",
-    src: "https://www.rd.com/wp-content/uploads/sites/2/2016/06/09-medicinal-herbs-you-can-grow-parsley.jpg",
+    src: "https://png.pngtree.com/png-vector/20240903/ourmid/pngtree-top-view-of-fresh-coriander-leaves-on-white-background-png-image_13588981.png",
   },
   {
     id: 8,
@@ -119,12 +119,12 @@ export const cropsCategories = [
   {
     id: 12,
     name: "Sugar Crops",
-    src: null,
+    src: "https://static.vecteezy.com/system/resources/thumbnails/038/348/325/small_2x/ai-generated-sugar-cane-isolated-with-clipping-path-and-full-depth-of-field-png.png",
   },
   {
     id: 13,
     name: "Nuts & Seeds",
-    src: null,
+    src:"https://png.pngtree.com/png-clipart/20231001/original/pngtree-nuts-and-seeds-fruit-picture-image_13071611.png",
   },
   {
     id: 14,

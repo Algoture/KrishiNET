@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { cropsCategories, cropData } from "../../utils/Data";
 import SearchBar from "../UI/SearchBar";
 import CropCard from "./CropCard";
 
 const BuyerDashboard = ({ user }) => {
+  const [showAllCategories, setShowAllCategories] = useState(false);
+
+  
+  const visibleCategories = showAllCategories
+    ? cropsCategories
+    : cropsCategories.slice(0, 7);
+
+  const handleViewMoreClick = () => {
+    setShowAllCategories(!showAllCategories);
+  };
+
   return (
     <div className="bg-primary text-black w-full">
       <div className="p-4 w-full">
@@ -20,7 +32,7 @@ const BuyerDashboard = ({ user }) => {
             Shop by Category
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-5 mt-2">
-            {cropsCategories.map((category, index) => (
+            {visibleCategories.map((category, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center bg-green-50 gap-2 p-3 rounded-lg group cursor-pointer hover:bg-accent"
@@ -38,6 +50,17 @@ const BuyerDashboard = ({ user }) => {
               </div>
             ))}
           </div>
+         
+          {cropsCategories.length > 7 && (
+            <div className=" mt-4">
+              <button
+                onClick={handleViewMoreClick}
+                className=" text-link "
+              >
+                {showAllCategories ? "View Less" : "View More"}
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="mt-10">
