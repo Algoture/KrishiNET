@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import SignatureCanvas from "react-signature-canvas";
 
 const ContractForm = () => {
   const [formData, setFormData] = useState({
@@ -14,14 +13,14 @@ const ContractForm = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const sigCanvas = useRef(null); // Reference for the signature canvas
+  const sigCanvas = useRef(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     if (type === "file") {
       setFormData({
         ...formData,
-        [name]: files[0], // Capture the uploaded photo file
+        [name]: files[0],
       });
     } else {
       setFormData({
@@ -36,15 +35,16 @@ const ContractForm = () => {
   };
 
   const handleSignatureSave = () => {
-    const signatureData = sigCanvas.current.getTrimmedCanvas().toDataURL("image/png");
+    const signatureData = sigCanvas.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
     setFormData({ ...formData, signature: signatureData });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.agreed && formData.signature) {
-      // Submit contract form with data, including photo and signature
-      console.log("Contract Data:", formData);
+      // console.log("Contract Data:", formData);
       setSubmitted(true);
     } else {
       alert("Please agree to the terms and provide your signature.");
@@ -119,9 +119,10 @@ const ContractForm = () => {
               />
             </div>
 
-            {/* Photo Upload */}
             <div>
-              <label className="block text-gray-700">Upload Photo (Optional)</label>
+              <label className="block text-gray-700">
+                Upload Photo (Optional)
+              </label>
               <input
                 type="file"
                 name="photo"
@@ -131,9 +132,10 @@ const ContractForm = () => {
               />
             </div>
 
-            {/* Signature Section */}
             <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">Upload Signature:</label>
+              <label className="block text-gray-700 font-bold mb-2">
+                Upload Signature:
+              </label>
               <input
                 type="file"
                 accept="image/*"
@@ -144,37 +146,38 @@ const ContractForm = () => {
               />
             </div>
 
-
-            {/* Platform Policies */}
             <div className="bg-gray-100 p-4 rounded-md text-sm text-gray-700">
               <h3 className="font-semibold text-green-700 mb-2">
                 Terms and Conditions
               </h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>
-                  The buyer and farmer agree to the price of the crop as listed in
-                  this contract. Any changes to the agreed price must be mutually
-                  discussed and documented before final delivery.
+                  The buyer and farmer agree to the price of the crop as listed
+                  in this contract. Any changes to the agreed price must be
+                  mutually discussed and documented before final delivery.
                 </li>
                 <li>
                   The farmer guarantees that the crop will be delivered in the
-                  agreed-upon quantity and quality by the specified delivery date.
-                  Failure to deliver on time may result in penalties as per
-                  KrishiNET's platform policy.
+                  agreed-upon quantity and quality by the specified delivery
+                  date. Failure to deliver on time may result in penalties as
+                  per KrishiNET's platform policy.
                 </li>
                 <li>
-                  The buyer agrees to make the payment as per the agreed price upon
-                  delivery. Failure to pay on time may lead to account suspension
-                  and legal action as per KrishiNET's platform guidelines.
+                  The buyer agrees to make the payment as per the agreed price
+                  upon delivery. Failure to pay on time may lead to account
+                  suspension and legal action as per KrishiNET's platform
+                  guidelines.
                 </li>
                 <li>
-                  KrishiNET is not responsible for any crop failure due to natural
-                  disasters or unforeseen circumstances. It is recommended to have
-                  an insurance policy in place for such events.
+                  KrishiNET is not responsible for any crop failure due to
+                  natural disasters or unforeseen circumstances. It is
+                  recommended to have an insurance policy in place for such
+                  events.
                 </li>
                 <li>
-                  Both parties agree to resolve any disputes through the platform's
-                  arbitration process before seeking external legal action.
+                  Both parties agree to resolve any disputes through the
+                  platform's arbitration process before seeking external legal
+                  action.
                 </li>
               </ul>
             </div>
@@ -201,39 +204,37 @@ const ContractForm = () => {
           </form>
         ) : (
           <div className="text-center mt-8">
-          <h3 className="text-xl font-semibold text-green-700">
-            Agreement Submitted Successfully!
-          </h3>
-          <p className="mt-4">Buyer: {formData.buyerName}</p>
-          <p>Farmer: {formData.farmerName}</p>
-          <p>Crop Type: {formData.cropType}</p>
-          <p>Price: ₹{formData.price}</p>
-          <p>Delivery Date: {formData.deliveryDate}</p>
-        
-          {formData.photo && (
-            <div className="mt-6 flex flex-col items-center">
-              <p className="font-bold mb-2">Uploaded Photo:</p>
-              <img
-                src={URL.createObjectURL(formData.photo)}
-                alt="Uploaded"
-                className="w-32 h-32 object-cover rounded-md border-2 border-gray-300"
-              />
-            </div>
-          )}
-        
-          {formData.signature && (
-            <div className="mt-6 flex flex-col items-center">
-              <p className="font-bold mb-2">Signature:</p>
-              <img
-                src={URL.createObjectURL(formData.signature)}
-                alt="Signature"
-                className="w-48 h-24 object-contain border-2 border-gray-300"
-              />
-            </div>
-          )}
-        </div>
-        
+            <h3 className="text-xl font-semibold text-green-700">
+              Agreement Submitted Successfully!
+            </h3>
+            <p className="mt-4">Buyer: {formData.buyerName}</p>
+            <p>Farmer: {formData.farmerName}</p>
+            <p>Crop Type: {formData.cropType}</p>
+            <p>Price: ₹{formData.price}</p>
+            <p>Delivery Date: {formData.deliveryDate}</p>
 
+            {formData.photo && (
+              <div className="mt-6 flex flex-col items-center">
+                <p className="font-bold mb-2">Uploaded Photo:</p>
+                <img
+                  src={URL.createObjectURL(formData.photo)}
+                  alt="Uploaded"
+                  className="w-32 h-32 object-cover rounded-md border-2 border-gray-300"
+                />
+              </div>
+            )}
+
+            {formData.signature && (
+              <div className="mt-6 flex flex-col items-center">
+                <p className="font-bold mb-2">Signature:</p>
+                <img
+                  src={URL.createObjectURL(formData.signature)}
+                  alt="Signature"
+                  className="w-48 h-24 object-contain border-2 border-gray-300"
+                />
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>
