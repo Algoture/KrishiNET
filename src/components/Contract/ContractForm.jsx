@@ -43,9 +43,9 @@ const ContractForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({ loading: true });
+    setFormData({...formData, loading: true });
+    // console.log(formData);
     if (formData.agreed && formData.signature) {
-      // console.log("Contract Data:", formData);
       setSubmitted(true);
     } else {
       alert("Please agree to the terms and provide your signature.");
@@ -65,13 +65,17 @@ const ContractForm = () => {
                 label="Buyer Name"
                 value={formData.buyerName}
                 type="text"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setFormData({ ...formData, buyerName: e.target.value });
+                }}
               />
               <InputField
                 label="Farmer Name"
                 value={formData.farmerName}
                 type="text"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setFormData({ ...formData, farmerName: e.target.value });
+                }}
               />
               <CategorySelect
                 category={formData.cropType}
@@ -83,7 +87,9 @@ const ContractForm = () => {
                 label="Agreed Price"
                 value={formData.price}
                 type="text"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setFormData({ ...formData, price: e.target.value });
+                }}
               />
               <div>
                 <h1>Delivery Date</h1>
@@ -101,7 +107,11 @@ const ContractForm = () => {
                 <label className="block text-gray-700">
                   Upload Photo (Optional)
                 </label>
-                <InputFileUpload handleChange={handleChange} />
+                <InputFileUpload
+                  handleChange={(e) => {
+                    setFormData({ ...formData, photo: e.target.files[0] });
+                  }}
+                />
               </div>
 
               <div className="mb-4">
