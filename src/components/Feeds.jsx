@@ -70,7 +70,7 @@ const Feeds = () => {
   };
 
   return (
-    <div className="flex bg-primary  lg:ml-60">
+    <div className="flex bg-primary lg:ml-60">
       <SideBar />
       {error && <p className="error-message">{error}</p>}
       <div className="flex gap-4 flex-wrap lg:my-10  justify-center ">

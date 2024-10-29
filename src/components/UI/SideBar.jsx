@@ -6,11 +6,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MapIcon from "@mui/icons-material/Map";
+import ArchitectureIcon from "@mui/icons-material/Architecture";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import RecommendIcon from "@mui/icons-material/Recommend";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import InventoryIcon from "@mui/icons-material/Inventory";
 const SideBar = () => {
   const { logoutUser, user } = useAuth();
   const [name, setName] = useState("");
@@ -34,7 +36,7 @@ const SideBar = () => {
       >
         <div className="relative flex flex-col h-full">
           <div className="flex items-center justify-center h-20 shadow-md">
-            <h1 className="text-3xl">
+            <h1 className="text-3xl font-bold">
               Krishi<span className="text-accent">NET</span>
             </h1>
           </div>
@@ -55,14 +57,15 @@ const SideBar = () => {
                 Dashboard
               </div>
             </NavLink>
-            <li className="cursor-pointer">
+
+            {/* <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <ChatIcon />
                 </span>
                 <span className="text-sm font-medium">Chat</span>
               </div>
-            </li>
+            </li> */}
 
             <NavLink
               to="/profile"
@@ -80,7 +83,23 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <li className="cursor-pointer">
+            <NavLink
+              to="/buyer"
+              className={({ isActive }) =>
+                `text-sm font-medium ${
+                  isActive ? "text-white bg-accent" : "text-black"
+                }`
+              }
+            >
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
+                  <InventoryIcon />
+                </span>
+                Buyer
+              </div>
+            </NavLink>
+
+            {/* <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <NotificationsIcon />
@@ -90,7 +109,7 @@ const SideBar = () => {
                   5
                 </span>
               </div>
-            </li>
+            </li> */}
 
             <NavLink
               to="/olamap"
@@ -105,6 +124,38 @@ const SideBar = () => {
                   <MapIcon />
                 </span>
                 Map
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/contract"
+              className={({ isActive }) =>
+                `text-sm font-medium ${
+                  isActive ? "text-white bg-accent" : "text-black"
+                }`
+              }
+            >
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
+                  <ArchitectureIcon />
+                </span>
+                Create Contract
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/recommend"
+              className={({ isActive }) =>
+                `text-sm font-medium ${
+                  isActive ? "text-white bg-accent" : "text-black"
+                }`
+              }
+            >
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
+                  <RecommendIcon />
+                </span>
+                Get Recommendations
               </div>
             </NavLink>
 
