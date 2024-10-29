@@ -133,7 +133,7 @@ const PostForm = () => {
           {success && (
             <Toast
               msg="Post created successfully!"
-              onClose={() => setToast(false)}
+              onClose={() => setSuccess(false)}
             />
           )}
 
