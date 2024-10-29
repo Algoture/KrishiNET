@@ -8,6 +8,7 @@ const InputField = ({ label, value, onChange, type }) => (
     onChange={onChange}
     value={value}
     type={type}
+    required
   />
 );
 

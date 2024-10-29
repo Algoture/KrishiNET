@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
 import SideBar from "../UI/SideBar";
-
+import InputFileUpload from "../Form/InputFileUpload";
+import InputField from "../Form/InputField";
+import CategorySelect from "../Form/CategorySelect";
+import { FormControlLabel, Checkbox } from "@mui/material";
 const ContractForm = () => {
   const [formData, setFormData] = useState({
     buyerName: "",
@@ -18,17 +21,11 @@ const ContractForm = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
-    if (type === "file") {
-      setFormData({
-        ...formData,
-        [name]: files[0],
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: type === "checkbox" ? checked : value,
-      });
-    }
+    setFormData({
+      ...formData,
+      [name]:
+        type === "checkbox" ? checked : type === "file" ? files[0] : value,
+    });
   };
 
   const handleSignatureClear = () => {
@@ -51,7 +48,6 @@ const ContractForm = () => {
       alert("Please agree to the terms and provide your signature.");
     }
   };
-
   return (
     <>
       <SideBar />
@@ -62,63 +58,35 @@ const ContractForm = () => {
           </h2>
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
+              <InputField
+                label="Buyer Name"
+                value={formData.buyerName}
+                type="text"
+                onChange={handleChange}
+              />
+              <InputField
+                label="Farmer Name"
+                value={formData.farmerName}
+                type="text"
+                onChange={handleChange}
+              />
+              <CategorySelect
+                category={formData.cropType}
+                onChange={handleChange}
+              />
+              <InputField
+                label="Agreed Price"
+                value={formData.price}
+                type="text"
+                onChange={handleChange}
+              />
               <div>
-                <label className="block text-gray-700">Buyer Name</label>
-                <input
-                  type="text"
-                  name="buyerName"
-                  value={formData.buyerName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Enter buyer's name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700">Farmer Name</label>
-                <input
-                  type="text"
-                  name="farmerName"
-                  value={formData.farmerName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Enter farmer's name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700">Crop Type</label>
-                <input
-                  type="text"
-                  name="cropType"
-                  value={formData.cropType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Enter crop type"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700">Agreed Price</label>
-                <input
-                  type="number"
-                  name="price"
-                  value={formData.price}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Enter agreed price"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700">Delivery Date</label>
-                <input
-                  type="date"
-                  name="deliveryDate"
+                <h1>Delivery Date</h1>
+                <InputField
+                  label=""
                   value={formData.deliveryDate}
+                  type="date"
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  required
                 />
               </div>
 
@@ -126,26 +94,17 @@ const ContractForm = () => {
                 <label className="block text-gray-700">
                   Upload Photo (Optional)
                 </label>
-                <input
-                  type="file"
-                  name="photo"
-                  accept="image/*"
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
+                <InputFileUpload handleChange={handleChange} />
               </div>
 
               <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2">
+                <label className="block text-gray-700 font-bold ">
                   Upload Signature:
                 </label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) =>
+                <InputFileUpload
+                  handleChange={(e) =>
                     setFormData({ ...formData, signature: e.target.files[0] })
                   }
-                  className="w-full p-2 border border-gray-300 rounded-md"
                 />
               </div>
 
@@ -187,16 +146,26 @@ const ContractForm = () => {
               </div>
 
               <div className="flex items-center">
-                <input
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={formData.agreed}
+                      onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                    />
+                  }
+                  label="I Agree to the terms and conditions"
+                  required
+                />
+                {/* <input
                   type="checkbox"
                   name="agreed"
                   checked={formData.agreed}
                   onChange={handleChange}
                   className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
-                />
-                <label className="ml-2 text-gray-700">
+                /> */}
+                {/* <label className="ml-2 text-gray-700">
                   I agree to the terms and conditions
-                </label>
+                </label> */}
               </div>
 
               <button
