@@ -31,7 +31,7 @@ const SideBar = () => {
       </div>
 
       <div
-        className={`bg-white shadow-xl h-screen fixed top-0 left-0 min-w-56 font-[sans-serif] overflow-hidden z-40
+        className={`bg-white shadow-2xl  h-screen fixed top-0 left-0 min-w-56 font-[sans-serif] overflow-hidden z-40
                         ${sidebarOpen ? "block" : "hidden"} lg:block`}
       >
         <div className="relative flex flex-col h-full">

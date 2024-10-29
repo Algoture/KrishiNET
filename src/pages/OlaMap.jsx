@@ -22,10 +22,7 @@ const OlaMap = () => {
   return (
     <div className="flex">
       <SideBar />
-      <div
-        id="map"
-        style={{ width: "100%", height: "500px", marginLeft: "15rem" }}
-      ></div>
+      <div id="map" className="w-full h-screen lg:ml-56"></div>
     </div>
   );
 };

@@ -18,12 +18,9 @@ const BuyerDashboard = ({ user }) => {
   return (
     <>
       <SideBar />
-      <div className="bg-primary text-black lg:ml-60">
+      <div className="bg-primary text-black lg:ml-56">
         <div className="p-4 w-full">
-          <div className="flex items-center mb-8 justify-between">
-            <h1 className="text-3xl font-bold">
-              Krishi<span className=" text-accent">NET</span>
-            </h1>
+          <div className="flex items-center mb-8 justify-end">
             <div className="relative">
               <SearchBar />
             </div>

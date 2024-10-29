@@ -43,7 +43,7 @@ const Profile = () => {
   return (
     <>
       <SideBar />
-      <div className="w-full flex gap-2 flex-wrap items-center justify-center flex-col mt-10">
+      <div className="flex gap-2 flex-wrap items-center justify-center flex-col mt-10 lg:ml-56">
         {userData ? (
           <div className="max-w-xs w-full bg-white shadow-box rounded-lg p-5 mt-10">
             <div className="flex-1 flex flex-col gap-1.5">

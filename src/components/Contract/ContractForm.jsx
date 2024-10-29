@@ -55,7 +55,7 @@ const ContractForm = () => {
   return (
     <>
       <SideBar />
-      <div className="lg:ml-60 flex items-center justify-center bg-primary py-2">
+      <div className="lg:ml-56 flex items-center justify-center bg-primary py-2">
         <div className="w-full max-w-xl bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-2xl font-bold text-green-700 text-center mb-6">
             Farm Contract Agreement
