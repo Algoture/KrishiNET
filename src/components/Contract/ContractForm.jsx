@@ -4,6 +4,7 @@ import InputFileUpload from "../Form/InputFileUpload";
 import InputField from "../Form/InputField";
 import CategorySelect from "../Form/CategorySelect";
 import { FormControlLabel, Checkbox } from "@mui/material";
+import SubmitBtn from "../Form/SubmitBtn";
 const ContractForm = () => {
   const [formData, setFormData] = useState({
     buyerName: "",
@@ -14,6 +15,7 @@ const ContractForm = () => {
     agreed: false,
     photo: null,
     signature: null,
+    loading: false,
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +43,7 @@ const ContractForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormData({ loading: true });
     if (formData.agreed && formData.signature) {
       // console.log("Contract Data:", formData);
       setSubmitted(true);
@@ -72,7 +75,9 @@ const ContractForm = () => {
               />
               <CategorySelect
                 category={formData.cropType}
-                onChange={handleChange}
+                onChange={(e) => {
+                  setFormData({ ...formData, cropType: e.target.value });
+                }}
               />
               <InputField
                 label="Agreed Price"
@@ -86,7 +91,9 @@ const ContractForm = () => {
                   label=""
                   value={formData.deliveryDate}
                   type="date"
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    setFormData({ ...formData, deliveryDate: e.target.value });
+                  }}
                 />
               </div>
 
@@ -150,30 +157,16 @@ const ContractForm = () => {
                   control={
                     <Checkbox
                       checked={formData.agreed}
-                      onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, agreed: e.target.checked })
+                      }
                     />
                   }
                   label="I Agree to the terms and conditions"
                   required
                 />
-                {/* <input
-                  type="checkbox"
-                  name="agreed"
-                  checked={formData.agreed}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
-                /> */}
-                {/* <label className="ml-2 text-gray-700">
-                  I agree to the terms and conditions
-                </label> */}
               </div>
-
-              <button
-                type="submit"
-                className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-colors"
-              >
-                Submit Agreement
-              </button>
+              <SubmitBtn text="Submit Agreement" loading={formData.loading} />
             </form>
           ) : (
             <div className="text-center mt-8">
