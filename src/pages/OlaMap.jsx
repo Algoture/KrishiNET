@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../OlaMaps/OlaMapsWebSDK/style.css";
 import { OlaMaps } from "../OlaMaps/OlaMapsWebSDK/olamaps-js-sdk.es.js";
 import { olaApiKey } from "../utils/OlaMaps";
+import SideBar from "../components/UI/SideBar.jsx";
 
 const OlaMap = () => {
   useEffect(() => {
@@ -19,8 +20,12 @@ const OlaMap = () => {
   }, []);
 
   return (
-    <div>
-      <div id="map" style={{ width: "100%", height: "500px" }}></div>
+    <div className="flex">
+      <SideBar />
+      <div
+        id="map"
+        style={{ width: "100%", height: "500px", marginLeft: "15rem" }}
+      ></div>
     </div>
   );
 };

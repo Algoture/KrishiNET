@@ -10,10 +10,10 @@ import {
 } from "../../utils/appwriteConfig";
 import InputField from "../Form/InputField";
 import { storage } from "../../utils/appwriteConfig";
-import BackBtn from "../UI/BackBtn";
 import InputFileUpload from "./InputFileUpload";
 import SubmitBtn from "../Form/SubmitBtn";
 import CategorySelect from "./CategorySelect";
+import SideBar from "../UI/SideBar";
 const PostForm = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -118,55 +118,57 @@ const PostForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <BackBtn />
-      <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-semibold text-center text-gray-700 mb-4">
-          Create a Post
-        </h2>
+    <>
+      <SideBar />
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-10">
+        <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg">
+          <h2 className="text-2xl font-semibold text-center text-gray-700 mb-4">
+            Create a Post
+          </h2>
 
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        {success && (
-          <p className="text-green-500 text-center mb-4">{success}</p>
-        )}
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          {success && (
+            <p className="text-green-500 text-center mb-4">{success}</p>
+          )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col gap-4">
-            <InputField
-              label="Crop Name"
-              value={cropName}
-              onChange={(e) => setCropName(e.target.value)}
-            />
-            <InputField
-              label="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <InputField
-              label="Price of Crop per Kg"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-            <InputField
-              label="Quantity of Crop in Kg"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-            <CategorySelect
-              category={category}
-              onChange={handleCategoryChange}
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-medium">
-              Upload Crop Image/Video
-            </label>
-            <InputFileUpload handleChange={handleFileChange} />
-          </div>
-          <SubmitBtn text="Create Post" loading={loading} />
-        </form>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="flex flex-col gap-4">
+              <InputField
+                label="Crop Name"
+                value={cropName}
+                onChange={(e) => setCropName(e.target.value)}
+              />
+              <InputField
+                label="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <InputField
+                label="Price of Crop per Kg"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              <InputField
+                label="Quantity of Crop in Kg"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+              <CategorySelect
+                category={category}
+                onChange={handleCategoryChange}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-medium">
+                Upload Crop Image/Video
+              </label>
+              <InputFileUpload handleChange={handleFileChange} />
+            </div>
+            <SubmitBtn text="Create Post" loading={loading} />
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

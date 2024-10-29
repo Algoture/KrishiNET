@@ -11,10 +11,11 @@ import {
 import ContractForm from "./components/Contract/ContractForm";
 import OlaMap from "./pages/OlaMap";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import Profile from "./components/Profile";
+import ProfilePage from "./pages/ProfilePage";
 import BuyerDashboard from "./components/Buyer/BuyerDashboard";
 import Feeds from "./components/Feeds";
 import PostForm from "./components/Form/PostForm";
+import DashboardPage from "./pages/DashboardPage";
 function App() {
   return (
     <Router>
@@ -26,8 +27,9 @@ function App() {
 
           <Route element={<PrivateRoutes />}>
             <Route path="/home" element={<HomePage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/recommend" element={<Recommendations />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/buyer" element={<BuyerDashboard />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
