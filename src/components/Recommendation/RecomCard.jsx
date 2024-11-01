@@ -7,7 +7,7 @@ import { Button, Rating } from "@mui/material";
 
 const RecomCard = ({ user }) => {
   return (
-    <div className="sm:w-32 lg:w-72 h-full max-w-sm w-72 bg-white shadow-box rounded-lg p-5">
+    <div className=" h-full max-w-sm w-[21rem] bg-white shadow-box rounded-lg p-5">
       <div className="flex-1 flex flex-col gap-1.5">
         <div className="flex items-center justify-center">
           <AccountCircleIcon sx={{ fontSize: 75 }} />

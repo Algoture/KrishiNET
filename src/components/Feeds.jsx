@@ -6,7 +6,7 @@ import {
   account,
 } from "../utils/appwriteConfig";
 import "../style/Feeds.css";
-import Sample from "./Sample";
+import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import SideBar from "./UI/SideBar";
@@ -70,7 +70,7 @@ const Feeds = () => {
   };
 
   return (
-    <div className="flex bg-primary lg:ml-56">
+    <div className="flex bg-primary lg:ml-56 lg:pt-4 py-12">
       <SideBar />
       {error && <p className="error-message">{error}</p>}
       <div className="flex gap-4 flex-wrap lg:my-10  justify-center ">
@@ -112,7 +112,7 @@ const Feeds = () => {
                 </div>
               ))
           : posts.map((post) => (
-              <Sample
+              <FeedCard
                 key={post.$id}
                 {...post}
                 cropName={post.cropname}
@@ -126,7 +126,7 @@ const Feeds = () => {
         to="/newpost"
         className="fixed bottom-8 right-8 bg-accent rounded-full w-14 h-14 flex justify-center items-center"
       >
-        <AddIcon sx={{color:"white",height:"2rem",width:"2rem"}}/>
+        <AddIcon sx={{ color: "white", height: "2rem", width: "2rem" }} />
       </NavLink>
     </div>
   );

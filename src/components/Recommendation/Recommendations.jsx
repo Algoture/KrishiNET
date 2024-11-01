@@ -50,7 +50,7 @@ const Recommendations = () => {
   return (
     <>
       <SideBar />
-      <div className="flex-col flex items-center justify-center gap-5 py-4 lg:ml-56 bg-primary">
+      <div className="flex-col flex items-center justify-center gap-5 py-6 lg:ml-56 bg-primary">
         {recommendations.length > 0 ? (
           <div className="w-full flex gap-2 flex-wrap items-center justify-center">
             {recommendations.map((user) => (
