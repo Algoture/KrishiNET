@@ -10,7 +10,7 @@ import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import SideBar from "./UI/SideBar";
-
+import { Skeleton } from "@mui/material";
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -80,34 +80,49 @@ const Feeds = () => {
               .map((_, index) => (
                 <div
                   key={index}
-                  className="animate-pulse rounded-xl shadow-box w-96 bg-white p-4 space-y-3"
+                  className="rounded-xl shadow-box lg:w-96 w-80 bg-white p-4 flex flex-col"
                 >
-                  <div className="post-header">
-                    <div className="flex items-center space-x-2">
-                      <div className="bg-gray-300 rounded-full h-6 w-6"></div>
-                      <div className="h-4 bg-gray-300 rounded w-24"></div>
+                  <div className="flex items-center gap-2">
+                    <Skeleton variant="circular" width={40} height={40} />
+                    <div className="flex items-center justify-between w-full">
+                      <Skeleton variant="text" width="60%" height={20} />
+                      <Skeleton variant="text" width="30%" height={20} />
                     </div>
-                    <div className="h-6 bg-gray-300 rounded mt-3 w-40"></div>
-                    <div className="h-4 bg-gray-300 rounded w-20 mt-1"></div>
                   </div>
 
-                  <div className="h-4 bg-gray-300 rounded mt-3 w-3/4"></div>
-                  <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+                  <Skeleton
+                    variant="text"
+                    width="80%"
+                    height={30}
+                    className="mt-2"
+                  />
+                  <Skeleton
+                    variant="text"
+                    width="100%"
+                    height={20}
+                    className="mt-2"
+                  />
 
-                  <div className="h-48 bg-gray-300 rounded-lg mt-3"></div>
+                  <span className="inline-block bg-gray-200 text-xs text-gray-700 px-2 py-1 rounded-full font-bold w-fit mt-2">
+                    <Skeleton variant="text" width={50} height={15} />
+                  </span>
 
-                  <div className="flex items-center mt-2 space-x-1">
-                    <div className="bg-gray-300 h-5 w-5 rounded-full"></div>
-                    <div className="h-4 bg-gray-300 rounded w-24"></div>
+                  <Skeleton
+                    variant="rectangular"
+                    height={176}
+                    className="rounded-lg mt-4"
+                  />
+
+                  <div className="flex items-center justify-between text-sm text-gray-600 font-bold mt-4 -ml-1">
+                    <div className="flex items-center">
+                      <Skeleton variant="text" width={50} height={20} />
+                    </div>
+                    <Skeleton variant="text" width={30} height={20} />
                   </div>
 
                   <div className="flex items-center justify-between mt-2">
-                    <div className="h-4 bg-gray-300 rounded w-20"></div>
-                    <div className="h-6 bg-gray-300 rounded w-16"></div>
-                  </div>
-
-                  <div className="post-actions mt-4">
-                    <div className="h-6 bg-gray-300 rounded w-16"></div>
+                    <Skeleton variant="text" width={50} height={30} />
+                    <Skeleton variant="rectangular" width={30} height={30} />
                   </div>
                 </div>
               ))

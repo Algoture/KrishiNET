@@ -1,4 +1,4 @@
-import { getRecommendations, useAuth, BackBtn } from "../../Index";
+import { getRecommendations, useAuth } from "../../Index";
 import { useEffect, useState } from "react";
 import RecomCard from "./RecomCard";
 import SideBar from "../UI/SideBar";
@@ -12,11 +12,11 @@ const Recommendations = () => {
   }, [user]);
 
   const SkeletonLoader = () => (
-    <div className="w-full flex gap-2 flex-wrap items-center justify-center">
+    <div className="w-full flex gap-5 py-6 flex-wrap items-center justify-center">
       {Array.from({ length: 4 }).map((_, index) => (
         <div
           key={index}
-          className="sm:w-32 lg:w-72 h-full max-w-sm w-72 bg-white shadow-box rounded-lg p-5 animate-pulse"
+          className="h-full max-w-sm w-[21rem] bg-white shadow-box rounded-lg p-5 animate-pulse"
         >
           <div className="flex-1 flex flex-col gap-1.5">
             <div className="flex items-center justify-center">
