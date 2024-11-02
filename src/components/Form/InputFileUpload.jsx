@@ -41,7 +41,7 @@ export default function InputFileUpload({ handleChange }) {
         component="label"
         variant="contained"
         tabIndex={-1}
-        sx={{ backgroundColor: "#70e000", color: "#fff" }}
+        sx={{ backgroundColor: "#70e000", color: "#000" }}
         startIcon={<CloudUploadIcon />}
       >
         Upload file

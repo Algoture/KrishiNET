@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { ID, Query } from "appwrite";
-import { useAuth } from "../../utils/AuthContext";
 import {
+  useAuth,
   databaseId,
   databases,
   postCollection,
   storageBucketId,
   collectionId,
-} from "../../utils/appwriteConfig";
-import InputField from "../Form/InputField";
-import { storage } from "../../utils/appwriteConfig";
-import InputFileUpload from "./InputFileUpload";
-import SubmitBtn from "../Form/SubmitBtn";
-import CategorySelect from "./CategorySelect";
-import SideBar from "../UI/SideBar";
-import Toast from "../UI/Toast";
-const PostForm = () => {
+  storage,
+  InputField,
+  SubmitBtn,
+  InputFileUpload,
+  CategorySelect,
+  SideBar,
+  Toast,
+} from "../../Index";
+const FeedPostForm = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [cropName, setCropName] = useState("");
@@ -184,4 +184,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default FeedPostForm;

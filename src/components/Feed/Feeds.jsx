@@ -4,13 +4,14 @@ import {
   databaseId,
   postCollection,
   account,
-} from "../utils/appwriteConfig";
-import "../style/Feeds.css";
+  SideBar,
+  AddIcon,
+  Skeleton,
+  cropsCategories,
+  SearchBar,
+} from "../../Index";
 import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
-import SideBar from "./UI/SideBar";
-import { Skeleton } from "@mui/material";
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -70,8 +71,9 @@ const Feeds = () => {
   };
 
   return (
-    <div className="flex bg-primary lg:ml-56 lg:pt-4 py-12">
+    <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-12">
       <SideBar />
+      <SearchBar />
       {error && <p className="error-message">{error}</p>}
       <div className="flex gap-4 flex-wrap lg:my-10  justify-center ">
         {loading
@@ -139,9 +141,9 @@ const Feeds = () => {
 
       <NavLink
         to="/newpost"
-        className="fixed bottom-8 right-8 bg-accent rounded-full w-14 h-14 flex justify-center items-center"
+        className="fixed bottom-6 right-6 bg-accent rounded-full w-14 h-14 flex justify-center items-center"
       >
-        <AddIcon sx={{ color: "white", height: "2rem", width: "2rem" }} />
+        <AddIcon sx={{ color: "black", height: "2rem", width: "2rem" }} />
       </NavLink>
     </div>
   );

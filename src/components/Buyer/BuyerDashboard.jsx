@@ -1,10 +1,8 @@
+import { cropsCategories, cropData, SideBar, SearchBar } from "../../Index";
 import { useState } from "react";
-import { cropsCategories, cropData } from "../../utils/Data";
-import SearchBar from "../UI/SearchBar";
 import CropCard from "./CropCard";
-import SideBar from "../UI/SideBar";
 
-const BuyerDashboard = ({ user }) => {
+const BuyerDashboard = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
 
   const visibleCategories = showAllCategories

@@ -6,10 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: "20px",
-  backgroundColor: "white",
-  "&:hover": {
-    backgroundColor: "#ffffff",
-  },
+  backgroundColor: "#70e000",
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -46,8 +43,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchBar() {
   return (
-    <Toolbar>
-      <Search>
+    <Toolbar className="flex justify-end">
+      <Search className="">
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>

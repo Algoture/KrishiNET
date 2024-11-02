@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { RadioGroup, Radio, FormControlLabel, Checkbox } from "@mui/material";
 import { GetState, GetCity } from "react-country-state-city";
-import { useAuth } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 const countryId = 101; // India
 import {
@@ -11,6 +9,11 @@ import {
   SubmitBtn,
   InputField,
   Already,
+  useAuth,
+  FormControlLabel,
+  Checkbox,
+  Radio,
+  RadioGroup,
 } from "../Index";
 
 const RegisterPage = () => {

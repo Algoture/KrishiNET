@@ -1,7 +1,4 @@
-import { Button, Rating } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
-import PlaceIcon from "@mui/icons-material/Place";
-
+import { Button, Rating, PersonIcon, PlaceIcon } from "../../Index";
 export default function CropCard({
   img,
   name,

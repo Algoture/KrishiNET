@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../Index";
+import { useAuth, PersonIcon } from "../../Index";
 import ChatIcon from "@mui/icons-material/Chat";
-import PersonIcon from "@mui/icons-material/Person";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MapIcon from "@mui/icons-material/Map";
@@ -45,9 +44,7 @@ const SideBar = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -70,9 +67,7 @@ const SideBar = () => {
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -86,9 +81,7 @@ const SideBar = () => {
             <NavLink
               to="/buyer"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -114,9 +107,7 @@ const SideBar = () => {
             <NavLink
               to="/olamap"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -130,9 +121,7 @@ const SideBar = () => {
             <NavLink
               to="/contract"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? " bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -146,9 +135,7 @@ const SideBar = () => {
             <NavLink
               to="/recommend"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -162,9 +149,7 @@ const SideBar = () => {
             <NavLink
               to="/feed"
               className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive ? "text-white bg-accent" : "text-black"
-                }`
+                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">

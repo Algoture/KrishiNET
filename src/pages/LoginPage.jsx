@@ -1,7 +1,12 @@
-import { PasswordInput, SubmitBtn, InputField, Already } from "../Index";
-import { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext";
+import { useEffect, useRef, useState } from "react";
+import {
+  PasswordInput,
+  SubmitBtn,
+  InputField,
+  Already,
+  useAuth,
+} from "../Index";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

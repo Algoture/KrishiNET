@@ -7,15 +7,15 @@ import {
   AuthProvider,
   Recommendations,
   Error404Page,
+  DashboardPage,
+  ProfilePage,
+  OlaMap,
 } from "./Index";
 import ContractForm from "./components/Contract/ContractForm";
-import OlaMap from "./pages/OlaMap";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import ProfilePage from "./pages/ProfilePage";
 import BuyerDashboard from "./components/Buyer/BuyerDashboard";
-import Feeds from "./components/Feeds";
-import PostForm from "./components/Form/PostForm";
-import DashboardPage from "./pages/DashboardPage";
+import Feeds from "./components/Feed/Feeds";
+import FeedPostForm from "./components/Feed/FeedPostForm";
 function App() {
   return (
     <Router>
@@ -34,7 +34,7 @@ function App() {
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
             <Route path="/feed" element={<Feeds />} />
-            <Route path="/newpost" element={<PostForm />} />
+            <Route path="/newpost" element={<FeedPostForm />} />
             <Route path="*" element={<Error404Page />} />
           </Route>
         </Routes>

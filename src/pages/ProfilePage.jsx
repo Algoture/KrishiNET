@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../utils/AuthContext";
-import PhoneIcon from "@mui/icons-material/Phone";
-import MailIcon from "@mui/icons-material/Mail";
-import PlaceIcon from "@mui/icons-material/Place";
-import PersonIcon from "@mui/icons-material/Person";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { databases, databaseId, collectionId } from "../utils/appwriteConfig";
 import { Query } from "appwrite";
-import SideBar from "../components/UI/SideBar";
-import { CircularProgress } from "@mui/material";
+import {
+  SideBar,
+  PersonIcon,
+  PlaceIcon,
+  MailIcon,
+  PhoneIcon,
+  useAuth,
+  databaseId,
+  databases,
+  collectionId,
+  AccountCircleIcon,
+} from "../Index";
 
 const Profile = () => {
   const { user } = useAuth();

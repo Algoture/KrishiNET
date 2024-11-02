@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
-import SideBar from "../UI/SideBar";
-import InputFileUpload from "../Form/InputFileUpload";
-import InputField from "../Form/InputField";
-import CategorySelect from "../Form/CategorySelect";
-import { FormControlLabel, Checkbox } from "@mui/material";
-import SubmitBtn from "../Form/SubmitBtn";
+import {
+  FormControlLabel,
+  Checkbox,
+  CategorySelect,
+  InputField,
+  InputFileUpload,
+  SideBar,
+  SubmitBtn,
+} from "../../Index";
 const ContractForm = () => {
   const [formData, setFormData] = useState({
     buyerName: "",
@@ -43,7 +46,7 @@ const ContractForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({...formData, loading: true });
+    setFormData({ ...formData, loading: true });
     // console.log(formData);
     if (formData.agreed && formData.signature) {
       setSubmitted(true);

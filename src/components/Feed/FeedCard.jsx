@@ -1,6 +1,5 @@
-import PersonIcon from "@mui/icons-material/Person";
-import PlaceIcon from "@mui/icons-material/Place";
-import { Heart, Liked } from "./UI/Icons";
+import { PlaceIcon, PersonIcon } from "../../Index";
+import { Heart, Liked } from "../UI/Icons";
 
 const FeedCard = ({
   name,
@@ -33,7 +32,7 @@ const FeedCard = ({
         <p className="text-sm text-gray-600 mt-2">{description}</p>
       </div>
 
-      <span className="inline-block bg-gray-200 text-xs text-gray-700 px-2 py-1 rounded-full font-bold w-fit mt-2">
+      <span className="inline-block bg-accent text-xs text-black px-2 py-1 rounded-full font-bold w-fit mt-2">
         {category}
       </span>
 

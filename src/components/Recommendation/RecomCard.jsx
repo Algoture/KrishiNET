@@ -1,10 +1,12 @@
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PersonIcon from "@mui/icons-material/Person";
-import PhoneIcon from "@mui/icons-material/Phone";
-import PlaceIcon from "@mui/icons-material/Place";
-import MailIcon from "@mui/icons-material/Mail";
-import { Button, Rating } from "@mui/material";
-
+import {
+  Button,
+  Rating,
+  PlaceIcon,
+  PersonIcon,
+  AccountCircleIcon,
+  MailIcon,
+  PhoneIcon,
+} from "../../Index";
 const RecomCard = ({ user }) => {
   return (
     <div className=" h-full max-w-sm w-[21rem] bg-white shadow-box rounded-lg p-5">
