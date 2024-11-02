@@ -69,11 +69,11 @@ const Feeds = () => {
       setError("Failed to update likes. Please try again.");
     }
   };
-
   return (
     <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-12">
       <SideBar />
       <SearchBar />
+
       {error && <p className="error-message">{error}</p>}
       <div className="flex gap-4 flex-wrap lg:my-10  justify-center ">
         {loading

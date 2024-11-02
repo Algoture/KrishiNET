@@ -1,3 +1,4 @@
+import { Fruits, Grains, Legumes, Vegetable } from "../components/UI/Icons";
 export const cropData = [
   {
     image:
@@ -64,71 +65,116 @@ export const cropsCategories = [
   {
     id: 1,
     name: "Cereals & Grains",
-    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/006_wheat_sack_80f6f0f6db.png",
+    src: Grains,
   },
   {
     id: 2,
     name: "Fruits",
-    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/003_orange_984217ca48.png",
+    src: Fruits,
   },
   {
     id: 3,
     name: "Vegetables",
-    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/004_vegetables_5494192878.png",
+    src: Vegetable,
   },
   {
     id: 4,
     name: "Legumes & Pulses",
-    src: "https://png.pngtree.com/png-vector/20231101/ourmid/pngtree-red-lentils-in-a-bowl-from-above-protein-png-image_10389107.png",
+    src: Legumes,
   },
   {
     id: 5,
     name: "Oilseeds",
-    src: "https://www.pngarts.com/files/4/Sunflower-Seeds-PNG-Image.png",
+    src: "OilSeed.png",
   },
   {
     id: 6,
     name: "Spices",
-    src: "https://png.pngtree.com/png-vector/20240202/ourmid/pngtree-pieces-of-cooking-spices-png-png-image_11591592.png",
+    src: "Spices.png",
   },
   {
     id: 7,
     name: "Herbs",
-    src: "https://png.pngtree.com/png-vector/20240903/ourmid/pngtree-top-view-of-fresh-coriander-leaves-on-white-background-png-image_13588981.png",
+    src: "Herbs.png",
   },
   {
     id: 8,
     name: "Plantation Crops",
-    src: null,
+    src: "Plantation.png",
   },
   {
     id: 9,
     name: "Fibers",
-    src: null,
+    src: "Fiber.png",
   },
   {
     id: 10,
-    name: "Medicinal & Aromatic Plants",
-    src: null,
+    name: "Medicinal",
+    src: "Medicinal.png",
   },
   {
     id: 11,
-    name: "Fodder Crops",
-    src: null,
+    name: "Sugar Crops",
+    src: "SugarCrop.png",
   },
   {
     id: 12,
-    name: "Sugar Crops",
-    src: "https://static.vecteezy.com/system/resources/thumbnails/038/348/325/small_2x/ai-generated-sugar-cane-isolated-with-clipping-path-and-full-depth-of-field-png.png",
+    name: "Nuts & Seeds",
+    src: "Nuts.png",
   },
   {
     id: 13,
-    name: "Nuts & Seeds",
-    src:"https://png.pngtree.com/png-clipart/20231001/original/pngtree-nuts-and-seeds-fruit-picture-image_13071611.png",
+    name: "Dairy",
+    src: "Dairy.png",
+  },
+];
+export const crops = [
+  {
+    id: 1,
+    category: "Spices",
+    city: "Solapur",
+    cropname: "Cloves",
   },
   {
-    id: 14,
-    name: "Dairy",
-    src: "https://res.cloudinary.com/dvytn4u6i/image/upload/v1710678972/005_milk_d2274408c0.png",
+    id: 2,
+    category: "Fruits",
+    city: "Solapur",
+    cropname: "Pitaya",
+  },
+  {
+    id: 3,
+    category: "Fruits",
+    city: "Pune",
+    cropname: "Orange",
+  },
+  {
+    id: 4,
+    category: "Vegetables",
+    city: "Solapur",
+    cropname: "Pumpkin",
+  },
+  {
+    id: 5,
+    category: "Vegetables",
+    city: "Solapur",
+    cropname: "Potato",
+  },
+  {
+    id: 6,
+    category: "Vegetables",
+    city: "Solapur",
+    cropname: "Tomato",
+  },
+  {
+    id: 7,
+    category: "Vegetables",
+    city: "Solapur",
+    cropname: "Onion",
+  },
+  {
+    id: 8,
+    category: "Cereals & Grains",
+    city: "Solapur",
+    cropname: "Black Rice",
   },
 ];
