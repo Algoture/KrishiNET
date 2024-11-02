@@ -13,7 +13,6 @@ import {
 } from "./Index";
 import ContractForm from "./components/Contract/ContractForm";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import BuyerDashboard from "./components/Buyer/BuyerDashboard";
 import Feeds from "./components/Feed/Feeds";
 import FeedPostForm from "./components/Feed/FeedPostForm";
 function App() {
@@ -30,7 +29,6 @@ function App() {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/recommend" element={<Recommendations />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/buyer" element={<BuyerDashboard />} />
             <Route path="/contract" element={<ContractForm />} />
             <Route path="/olamap" element={<OlaMap />} />
             <Route path="/feed" element={<Feeds />} />

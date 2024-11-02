@@ -21,7 +21,7 @@ const Feeds = () => {
   const [category, setCategory] = useState("");
   const visibleCategories = showAllCategories
     ? cropsCategories
-    : cropsCategories.slice(0, 7);
+    : cropsCategories.slice(0, 5);
 
   const handleViewMoreClick = () => {
     setShowAllCategories(!showAllCategories);
@@ -79,34 +79,23 @@ const Feeds = () => {
     }
   };
   return (
-    <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-12">
+    <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-8">
       <SideBar />
-      <SearchBar />
-      <div className="flex w-fit h-fit gap-5 mt-2 flex-wrap">
+      {/* <SearchBar /> */}
+      <div className=" sticky flex w-full h-fit gap-4 mt-2 flex-wrap p-2">
         {visibleCategories.map((cat, index) => (
           <div
             key={index}
             onClick={() => setCategory(category === cat.name ? "" : cat.name)}
-            className={`flex flex-col items-center bg-accent gap-2 p-3 rounded-lg group cursor-pointer ${
-              category === cat.name ? "" : "bg-primary"
+            className={` flex flex-col items-center justify-center bg-accent gap-2 p-2 rounded-xl group cursor-pointer ${
+              category === cat.name ? "" : "bg-white"
             }`}
           >
-            {typeof cat.src === "string" ? (
-              <img
-                alt={cat.name}
-                width="50"
-                height="50"
-                src={cat.src}
-                className="group-hover:scale-125 transition-all ease-in-out"
-              />
-            ) : (
-              <cat.src />
-            )}
             <h2 className="text-black">{cat.name}</h2>
           </div>
         ))}
         {cropsCategories.length > 7 && (
-          <div className=" mt-4">
+          <div className="pt-2">
             <button onClick={handleViewMoreClick} className=" text-link ">
               {showAllCategories ? "View Less" : "View More"}
             </button>

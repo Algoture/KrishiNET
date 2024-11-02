@@ -78,20 +78,6 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              to="/buyer"
-              className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
-              }
-            >
-              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
-                  <InventoryIcon />
-                </span>
-                Buyer
-              </div>
-            </NavLink>
-
             {/* <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">

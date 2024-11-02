@@ -1,4 +1,3 @@
-import { Fruits, Grains, Legumes, Vegetable } from "../components/UI/Icons";
 export const cropData = [
   {
     image:
@@ -65,67 +64,53 @@ export const cropsCategories = [
   {
     id: 1,
     name: "Cereals & Grains",
-    src: Grains,
   },
   {
     id: 2,
     name: "Fruits",
-    src: Fruits,
   },
   {
     id: 3,
     name: "Vegetables",
-    src: Vegetable,
   },
   {
     id: 4,
     name: "Legumes & Pulses",
-    src: Legumes,
   },
   {
     id: 5,
     name: "Oilseeds",
-    src: "OilSeed.png",
   },
   {
     id: 6,
     name: "Spices",
-    src: "Spices.png",
   },
   {
     id: 7,
     name: "Herbs",
-    src: "Herbs.png",
   },
   {
     id: 8,
     name: "Plantation Crops",
-    src: "Plantation.png",
   },
   {
     id: 9,
     name: "Fibers",
-    src: "Fiber.png",
   },
   {
     id: 10,
     name: "Medicinal",
-    src: "Medicinal.png",
   },
   {
     id: 11,
     name: "Sugar Crops",
-    src: "SugarCrop.png",
   },
   {
     id: 12,
     name: "Nuts & Seeds",
-    src: "Nuts.png",
   },
   {
     id: 13,
     name: "Dairy",
-    src: "Dairy.png",
   },
 ];
-
