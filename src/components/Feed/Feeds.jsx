@@ -6,17 +6,26 @@ import {
   account,
   SideBar,
   AddIcon,
-  Skeleton,
   cropsCategories,
   SearchBar,
 } from "../../Index";
 import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
+import FeedCardSkeleton from "./FeedCardSkeleton";
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showAllCategories, setShowAllCategories] = useState(false);
+  const [category, setCategory] = useState("");
+  const visibleCategories = showAllCategories
+    ? cropsCategories
+    : cropsCategories.slice(0, 7);
+
+  const handleViewMoreClick = () => {
+    setShowAllCategories(!showAllCategories);
+  };
   useEffect(() => {
     const fetchCurrentUserId = async () => {
       setLoading(true);
@@ -73,65 +82,63 @@ const Feeds = () => {
     <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-12">
       <SideBar />
       <SearchBar />
-
+      <div className="flex w-fit h-fit gap-5 mt-2 flex-wrap">
+        {visibleCategories.map((cat, index) => (
+          <div
+            key={index}
+            onClick={() => setCategory(category === cat.name ? "" : cat.name)}
+            className={`flex flex-col items-center bg-accent gap-2 p-3 rounded-lg group cursor-pointer ${
+              category === cat.name ? "" : "bg-primary"
+            }`}
+          >
+            {typeof cat.src === "string" ? (
+              <img
+                alt={cat.name}
+                width="50"
+                height="50"
+                src={cat.src}
+                className="group-hover:scale-125 transition-all ease-in-out"
+              />
+            ) : (
+              <cat.src />
+            )}
+            <h2 className="text-black">{cat.name}</h2>
+          </div>
+        ))}
+        {cropsCategories.length > 7 && (
+          <div className=" mt-4">
+            <button onClick={handleViewMoreClick} className=" text-link ">
+              {showAllCategories ? "View Less" : "View More"}
+            </button>
+          </div>
+        )}
+      </div>
       {error && <p className="error-message">{error}</p>}
-      <div className="flex gap-4 flex-wrap lg:my-10  justify-center ">
+      <div className="flex gap-4 flex-wrap lg:my-10 justify-center">
         {loading
           ? Array(4)
               .fill("")
               .map((_, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl shadow-box lg:w-96 w-80 bg-white p-4 flex flex-col"
-                >
-                  <div className="flex items-center gap-2">
-                    <Skeleton variant="circular" width={40} height={40} />
-                    <div className="flex items-center justify-between w-full">
-                      <Skeleton variant="text" width="60%" height={20} />
-                      <Skeleton variant="text" width="30%" height={20} />
-                    </div>
-                  </div>
-
-                  <Skeleton
-                    variant="text"
-                    width="80%"
-                    height={30}
-                    className="mt-2"
-                  />
-                  <Skeleton
-                    variant="text"
-                    width="100%"
-                    height={20}
-                    className="mt-2"
-                  />
-
-                  <span className="inline-block bg-gray-200 text-xs text-gray-700 px-2 py-1 rounded-full font-bold w-fit mt-2">
-                    <Skeleton variant="text" width={50} height={15} />
-                  </span>
-
-                  <Skeleton
-                    variant="rectangular"
-                    height={176}
-                    className="rounded-lg mt-4"
-                  />
-
-                  <div className="flex items-center justify-between text-sm text-gray-600 font-bold mt-4 -ml-1">
-                    <div className="flex items-center">
-                      <Skeleton variant="text" width={50} height={20} />
-                    </div>
-                    <Skeleton variant="text" width={30} height={20} />
-                  </div>
-
-                  <div className="flex items-center justify-between mt-2">
-                    <Skeleton variant="text" width={50} height={30} />
-                    <Skeleton variant="rectangular" width={30} height={30} />
-                  </div>
-                </div>
+                <FeedCardSkeleton key={index} indexKey={index} />
+              ))
+          : category
+          ? posts
+              .filter((i) => i.category === category)
+              .map((post) => (
+                <FeedCard
+                  key={post.$id}
+                  {...post}
+                  category={post.category}
+                  cropName={post.cropname}
+                  currentUserId={currentUserId}
+                  handleLike={handleLike}
+                />
               ))
           : posts.map((post) => (
               <FeedCard
                 key={post.$id}
                 {...post}
+                category={post.category}
                 cropName={post.cropname}
                 currentUserId={currentUserId}
                 handleLike={handleLike}

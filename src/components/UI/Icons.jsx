@@ -39,8 +39,8 @@ export const Fruits = () => {
     <svg
       className="group-hover:scale-125 transition-all ease-in-out"
       viewBox="0 0 512 512"
-      height={30}
-      width={30}
+      width={50}
+      height={50}
     >
       <path
         d="M320 21.333a85.333 85.333 0 0 1 85.333 85.334A85.333 85.333 0 0 1 320 21.333z"
@@ -71,8 +71,8 @@ export const Vegetable = () => {
     <svg
       className="group-hover:scale-125 transition-all ease-in-out"
       viewBox="0 0 512 512"
-      width={30}
-      height={30}
+      width={50}
+      height={50}
     >
       <g id="Tomato">
         <path
@@ -152,8 +152,8 @@ export const Legumes = () => {
     <svg
       className="group-hover:scale-125 transition-all ease-in-out"
       viewBox="0 0 64 80"
-      width={30}
-      height={30}
+      width={50}
+      height={50}
       fill="#d90429"
     >
       <path d="M57.4,10.68a8.711,8.711,0,0,0-10.562-.03,16.115,16.115,0,0,1-2.055,1.108c-2.81,1.184-6.63.4-11.353-2.334l-.447-.26c-1.926-1.124-4.109-2.4-6.668-2.159a10.005,10.005,0,0,0-5.918,2.747,10.156,10.156,0,0,0-1.681,12.756A25.76,25.76,0,0,0,32.368,32.9a25.37,25.37,0,0,0,7.9,1.215c7.664,0,15.851-3.173,20.224-10.071a9.162,9.162,0,0,0-.843-11.284A13.1,13.1,0,0,0,57.4,10.68ZM44.894,14.7a7.192,7.192,0,0,1-7.306-1.188c3.057.988,5.73,1.033,7.968.092.311-.131.594-.282.879-.432A2.78,2.78,0,0,1,44.894,14.7Zm11.972.186c-.237.539-1.76.389-3.4-.334s-2.78-1.746-2.543-2.284,1.76-.388,3.4.335S57.1,14.345,56.866,14.883Z" />
@@ -165,8 +165,8 @@ export const Grains = () => {
   return (
     <svg
       className="group-hover:scale-125 transition-all ease-in-out"
-      height={30}
-      width={30}
+      width={50}
+      height={50}
       viewBox="0 0 512 512"
     >
       <rect

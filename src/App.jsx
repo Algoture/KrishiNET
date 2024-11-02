@@ -16,7 +16,6 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import BuyerDashboard from "./components/Buyer/BuyerDashboard";
 import Feeds from "./components/Feed/Feeds";
 import FeedPostForm from "./components/Feed/FeedPostForm";
-import CropCategories from "./components/UI/CropCategories";
 function App() {
   return (
     <Router>
@@ -25,7 +24,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/category" element={<CropCategories />} />
+
           <Route element={<PrivateRoutes />}>
             <Route path="/home" element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
