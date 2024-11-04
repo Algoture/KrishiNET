@@ -23,7 +23,7 @@ const FeedCard = ({
         <PersonIcon className="text-black text-2xl" fontSize="25px" />
         <div className="flex items-center justify-between w-full">
           <p className="text-lg font-semibold text-gray-800">{name}</p>
-          {role.charAt(0).toUpperCase() + role.slice(1)}
+          {/* {role.charAt(0).toUpperCase() + role.slice(1)} */}
         </div>
       </div>
 
