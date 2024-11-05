@@ -1,4 +1,5 @@
-import { PlaceIcon, PersonIcon } from "../../Index";
+import { useState } from "react";
+import { PlaceIcon, PersonIcon, Button } from "../../Index";
 import { Heart, Liked } from "../UI/Icons";
 
 const FeedCard = ({
@@ -17,19 +18,36 @@ const FeedCard = ({
   currentUserId,
   postId,
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const charLimit = 90;
+  const shouldTruncate = description.length > charLimit;
+  const displayedDescription =
+    isExpanded || !shouldTruncate
+      ? description
+      : `${description.slice(0, charLimit)}...`;
+
   return (
     <div className="rounded-xl shadow-box lg:w-96 w-80 bg-white p-4 flex flex-col">
       <div className="flex items-center gap-2">
         <PersonIcon className="text-black text-2xl" fontSize="25px" />
         <div className="flex items-center justify-between w-full">
           <p className="text-lg font-semibold text-gray-800">{name}</p>
-          {/* {role.charAt(0).toUpperCase() + role.slice(1)} */}
         </div>
       </div>
 
       <div>
         <p className="text-2xl font-bold text-gray-900 mt-2">{cropName}</p>
-        <p className="text-sm text-gray-600 mt-2">{description}</p>
+        <p className="text-sm text-gray-600 mt-2 h-fit">
+          {displayedDescription}
+          {shouldTruncate && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-link ml-2"
+            >
+              {isExpanded ? "Read less" : "Read more"}
+            </button>
+          )}
+        </p>
       </div>
 
       <span className="inline-block bg-accent text-xs text-black px-2 py-1 rounded-full font-bold w-fit mt-2">
@@ -60,7 +78,19 @@ const FeedCard = ({
       </div>
 
       <div className="flex items-center justify-between mt-2">
-        <span className="text-lg font-bold text-green-600">₹{price}/kg</span>
+        <span className="text-lg font-bold text-green-600">₹ {price}/kg</span>
+        <p className="text-slate-400 font-semibold text-sm">
+          Posted : 2 hours ago
+        </p>
+      </div>
+
+      <div className="flex items-center justify-between mt-2">
+        <Button
+          variant="contained"
+          sx={{ backgroundColor: "#70e000", color: "black",padding:"5px" }}
+        >
+          Buy
+        </Button>
         <button
           className={`flex items-center text-xl font-medium transition-all ${
             likes.includes(currentUserId) ? "text-red-500" : "text-gray-500"

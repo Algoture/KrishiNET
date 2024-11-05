@@ -1,3 +1,4 @@
+// Haversine Formula:
 export const calculateDistance = (coord1, coord2) => {
   const R = 6371;
   const dLat = ((coord2[0] - coord1[0]) * Math.PI) / 180;
