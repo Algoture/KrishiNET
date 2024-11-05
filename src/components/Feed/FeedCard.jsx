@@ -19,7 +19,7 @@ const FeedCard = ({
   postId,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const charLimit = 90;
+  const charLimit = 45;
   const shouldTruncate = description.length > charLimit;
   const displayedDescription =
     isExpanded || !shouldTruncate
