@@ -8,10 +8,8 @@ import MapIcon from "@mui/icons-material/Map";
 import ArchitectureIcon from "@mui/icons-material/Architecture";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import MenuIcon from "@mui/icons-material/Menu";
-import InventoryIcon from "@mui/icons-material/Inventory";
 const SideBar = () => {
   const { logoutUser, user } = useAuth();
   const [name, setName] = useState("");
@@ -55,40 +53,26 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            {/* <li className="cursor-pointer">
+            <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <ChatIcon />
                 </span>
                 <span className="text-sm font-medium">Chat</span>
               </div>
-            </li> */}
+            </li>
 
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
-              }
-            >
-              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
-                  <PersonIcon />
-                </span>
-                Profile
-              </div>
-            </NavLink>
-
-            {/* <li className="cursor-pointer">
+            <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <NotificationsIcon />
                 </span>
                 <span className="text-sm font-medium">Notifications</span>
                 <span className="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">
-                  5
+                  99+
                 </span>
               </div>
-            </li> */}
+            </li>
 
             <NavLink
               to="/olamap"
@@ -157,13 +141,23 @@ const SideBar = () => {
               </div>
             </li>
           </ul>
+
           <div className="flex cursor-pointer items-center w-full absolute bottom-0 h-12 gap-2">
-            <span className="inline-flex items-center justify-center h-12 ml-2 text-lg ">
-              <PermIdentityIcon />
-            </span>
-            <div className="flex justify-center items-center">
-              <p className="text-sm text-black">{name}</p>
-            </div>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                `text-sm flex w-full font-medium ${
+                  isActive ? "bg-accent" : "text-black"
+                }`
+              }
+            >
+              <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
+                <PersonIcon />
+              </span>
+              <div className="flex justify-center items-center">
+                <p className="text-sm text-black">{name}</p>
+              </div>
+            </NavLink>
           </div>
         </div>
       </div>
