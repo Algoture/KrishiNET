@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 const Toast = ({ msg, onClose }) => {
   useEffect(() => {
-    const timer = setTimeout(onClose, 3000);
+    const timer = setTimeout(onClose, 2500);
     return () => clearTimeout(timer);
   }, [onClose]);
 

@@ -12,6 +12,7 @@ import {
 import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
 import FeedCardSkeleton from "./FeedCardSkeleton";
+import { formatTimeAgo } from "../../utils/Utils";
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -117,9 +118,11 @@ const Feeds = () => {
                 <FeedCard
                   key={post.$id}
                   {...post}
+                  dash={false}
                   category={post.category}
                   cropName={post.cropname}
                   currentUserId={currentUserId}
+                  date={formatTimeAgo(post.$createdAt)}
                   handleLike={handleLike}
                 />
               ))
@@ -127,6 +130,7 @@ const Feeds = () => {
               <FeedCard
                 key={post.$id}
                 {...post}
+                date={formatTimeAgo(post.$createdAt)}
                 category={post.category}
                 cropName={post.cropname}
                 currentUserId={currentUserId}

@@ -74,7 +74,7 @@ const FeedPostForm = () => {
     }
     const postId = ID.unique();
     const postDetails = {
-      userId: userData.$id,
+      userId: user.$id,
       role: userData.role,
       name: userData.name,
       city: userData.city,
@@ -86,7 +86,8 @@ const FeedPostForm = () => {
       description: description,
       category: category,
     };
-
+    console.log(user.$id)
+    console.log(postDetails.userId)
     try {
       let fileUrl = "";
       if (file) {
@@ -107,7 +108,6 @@ const FeedPostForm = () => {
       );
       setSuccess("Post created successfully!");
       setLoading(false);
-      // console.log(response);
       setDescription("");
       setCategory("");
       setCropName("");

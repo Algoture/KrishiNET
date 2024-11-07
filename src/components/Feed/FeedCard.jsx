@@ -5,6 +5,7 @@ import { Heart, Liked } from "../UI/Icons";
 const FeedCard = ({
   name,
   role,
+  dash,
   price,
   cropName,
   handleLike,
@@ -14,12 +15,13 @@ const FeedCard = ({
   likes,
   city,
   state,
+  date,
   quantity,
   currentUserId,
   postId,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const charLimit = 45;
+  const charLimit = 40;
   const shouldTruncate = description.length > charLimit;
   const displayedDescription =
     isExpanded || !shouldTruncate
@@ -79,15 +81,17 @@ const FeedCard = ({
 
       <div className="flex items-center justify-between mt-2">
         <span className="text-lg font-bold text-green-600">₹ {price}/kg</span>
-        <p className="text-slate-400 font-semibold text-sm">
-          Posted : 2 hours ago
-        </p>
+        <p className="text-slate-400 font-semibold text-sm">Posted {date}</p>
       </div>
 
-      <div className="flex items-center justify-between mt-2">
+      <div
+        className={`flex items-center justify-between mt-2 ${
+          dash ? "hidden" : ""
+        }`}
+      >
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#70e000", color: "black",padding:"5px" }}
+          sx={{ backgroundColor: "#70e000", color: "black", padding: "5px" }}
         >
           Buy
         </Button>
