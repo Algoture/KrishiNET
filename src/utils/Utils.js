@@ -17,7 +17,12 @@ export const calculateDistance = (coord1, coord2) => {
 export const formatTimeAgo = (dateString) => {
   const timeDifference = Date.now() - new Date(dateString).getTime();
   const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-  return hours < 24
-    ? `${hours} hours ago`
-    : new Date(dateString).toLocaleDateString();
+  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  if (hours < 24) {
+    return `${hours} hours ago`;
+  } else if (days < 7) {
+    return `${days} days ago`;
+  } else {
+    return new Date(dateString).toLocaleDateString();
+  }
 };

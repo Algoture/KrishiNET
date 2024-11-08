@@ -81,7 +81,7 @@ const FeedCard = ({
 
       <div className="flex items-center justify-between mt-2">
         <span className="text-lg font-bold text-green-600">₹ {price}/kg</span>
-        <p className="text-slate-400 font-semibold text-sm">Posted {date}</p>
+        <p className="text-slate-400 font-semibold text-xs">Posted {date}</p>
       </div>
 
       <div
