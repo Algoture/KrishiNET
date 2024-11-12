@@ -7,12 +7,12 @@ import {
   SideBar,
   AddIcon,
   cropsCategories,
-  SearchBar,
 } from "../../Index";
 import FeedCard from "./FeedCard";
 import { NavLink } from "react-router-dom";
 import FeedCardSkeleton from "./FeedCardSkeleton";
 import { formatTimeAgo } from "../../utils/Utils";
+import { SearchIcon } from "../UI/Icons";
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -82,13 +82,12 @@ const Feeds = () => {
   return (
     <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-8">
       <SideBar />
-      {/* <SearchBar /> */}
-      <div className=" sticky flex w-full h-fit gap-4 mt-2 flex-wrap p-2">
+      <div className="relative flex w-[80%] h-fit gap-4 mt-1 flex-wrap p-2">
         {visibleCategories.map((cat, index) => (
           <div
             key={index}
             onClick={() => setCategory(category === cat.name ? "" : cat.name)}
-            className={` flex flex-col items-center justify-center bg-accent gap-2 p-2 rounded-xl group cursor-pointer ${
+            className={`h-fit flex flex-col items-center justify-center bg-accent gap-2 p-2 rounded-xl group cursor-pointer ${
               category === cat.name ? "" : "bg-white"
             }`}
           >
@@ -102,6 +101,14 @@ const Feeds = () => {
             </button>
           </div>
         )}
+      </div>
+      <div className="absolute right-2 top-8 flex items-center justify-center shadow-md bg-accent w-fit rounded-xl gap-2 px-3 py-1">
+        <SearchIcon />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="md:w-20 max-w-24 placeholder-black bg-accent items-center focus:outline-none focus:w-40 transition-all duration-300"
+        />
       </div>
       {error && <p className="error-message">{error}</p>}
       <div className="flex gap-4 flex-wrap lg:my-10 justify-center">

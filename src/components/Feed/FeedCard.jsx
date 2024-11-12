@@ -31,9 +31,15 @@ const FeedCard = ({
   return (
     <div className="rounded-xl shadow-box lg:w-96 w-80 bg-white p-4 flex flex-col">
       <div className="flex items-center gap-2">
-        <PersonIcon className="text-black text-2xl" fontSize="25px" />
+        <PersonIcon className="text-gray-600 text-2xl" fontSize="25px" />
         <div className="flex items-center justify-between w-full">
-          <p className="text-lg font-semibold text-gray-800">{name}</p>
+          <p className="text-lg font-semibold text-gray-600">{name}</p>
+          <div className="flex gap-1">
+            <img src="time.png" alt="durationImg" className="w-4" />
+            <p className="text-slate-400 font-semibold text-xs">
+              Posted {date}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -52,7 +58,7 @@ const FeedCard = ({
         </p>
       </div>
 
-      <span className="inline-block bg-accent text-xs text-black px-2 py-1 rounded-full font-bold w-fit mt-2">
+      <span className="inline-block bg-accent text-xs text-gray-800 px-2 py-1 rounded-full font-bold w-fit mt-2">
         {category}
       </span>
 
@@ -80,8 +86,7 @@ const FeedCard = ({
       </div>
 
       <div className="flex items-center justify-between mt-2">
-        <span className="text-lg font-bold text-green-600">₹ {price}/kg</span>
-        <p className="text-slate-400 font-semibold text-xs">Posted {date}</p>
+        <span className="text-2xl font-bold text-green-600">₹ {price}/kg</span>
       </div>
 
       <div

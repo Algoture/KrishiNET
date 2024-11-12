@@ -1,15 +1,7 @@
-import {
-  Button,
-  Rating,
-  PlaceIcon,
-  PersonIcon,
-  AccountCircleIcon,
-  MailIcon,
-  PhoneIcon,
-} from "../../Index";
+import { Button, Rating, PlaceIcon, AccountCircleIcon } from "../../Index";
 const RecomCard = ({ user }) => {
   return (
-    <div className=" h-full max-w-sm w-[21rem] bg-white shadow-box rounded-lg p-5">
+    <div className=" h-full max-w-sm w-[18rem] bg-white shadow-box rounded-lg p-5">
       <div className="flex-1 flex flex-col gap-1.5">
         <div className="flex items-center justify-center">
           <AccountCircleIcon sx={{ fontSize: 75 }} />
@@ -17,15 +9,6 @@ const RecomCard = ({ user }) => {
         <h3 className="text-xl font-semibold text-gray-900 text-center">
           {user.name}
         </h3>
-        <p className="text-base text-gray-500">
-          <MailIcon /> {user.email}
-        </p>
-        <p className="text-base text-gray-500">
-          <PhoneIcon /> {user.phone}
-        </p>
-        <p className="text-base text-gray-500">
-          <PersonIcon /> {user.role === "farmer" ? "Farmer" : "Buyer"}
-        </p>
         <div className="flex justify-between text-gray-600 text-base">
           <div className="flex items-center justify-center">
             <PlaceIcon /> <p className="ml-1">{user.city}</p>

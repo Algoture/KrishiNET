@@ -42,7 +42,9 @@ const SideBar = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
+                `text-sm font-medium hover:text-gray-800 ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -54,7 +56,7 @@ const SideBar = () => {
             </NavLink>
 
             <li className="cursor-pointer">
-              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
+              <div className="flex text-unfocused flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <ChatIcon />
                 </span>
@@ -63,7 +65,7 @@ const SideBar = () => {
             </li>
 
             <li className="cursor-pointer">
-              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-unfocused hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <NotificationsIcon />
                 </span>
@@ -77,7 +79,9 @@ const SideBar = () => {
             <NavLink
               to="/olamap"
               className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
+                `text-sm font-medium ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -91,7 +95,9 @@ const SideBar = () => {
             <NavLink
               to="/contract"
               className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? " bg-accent" : "text-black"}`
+                `text-sm font-medium hover:text-gray-800 ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -105,7 +111,9 @@ const SideBar = () => {
             <NavLink
               to="/recommend"
               className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
+                `text-sm font-medium hover:text-gray-800 ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -119,7 +127,9 @@ const SideBar = () => {
             <NavLink
               to="/feed"
               className={({ isActive }) =>
-                `text-sm font-medium ${isActive ? "bg-accent" : "text-black"}`
+                `text-sm font-medium hover:text-gray-800 ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
               }
             >
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
@@ -131,7 +141,7 @@ const SideBar = () => {
             </NavLink>
 
             <li className="cursor-pointer">
-              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-black hover:text-gray-800">
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-unfocused hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <LogoutIcon />
                 </span>
@@ -142,7 +152,7 @@ const SideBar = () => {
             </li>
           </ul>
 
-          <div className="flex cursor-pointer items-center w-full absolute bottom-0 h-12 gap-2">
+          <div className=" border-t-2  flex cursor-pointer items-center w-full absolute bottom-1 p-1 h-12 gap-2">
             <NavLink
               to="/profile"
               className={({ isActive }) =>

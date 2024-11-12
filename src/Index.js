@@ -73,8 +73,7 @@ export { Recommendations };
 // UI Components:
 import SideBar from "./components/UI/SideBar";
 import Toast from "./components/UI/Toast";
-import SearchBar from "./components/UI/SearchBar";
-export { SideBar, Toast, SearchBar };
+export { SideBar, Toast };
 
 // Material UI Components:
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
