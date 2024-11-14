@@ -15,8 +15,7 @@ const Recommendations = () => {
   return (
     <>
       <SideBar />
-      <h1 className="text-center text-2xl md:text-4xl text-unfocused">Recommended User For You</h1>
-      <div className="flex-col flex items-center py-2 justify-center gap-5  bg-primary">
+      <div className="flex-col md:ml-56 flex items-center py-2 justify-center gap-5  bg-primary">
         {recommendations.length > 0 ? (
           <div className="w-full flex gap-2 flex-wrap items-center justify-center">
             {recommendations.map((user) => (
