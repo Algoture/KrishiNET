@@ -13,20 +13,20 @@ import { NavLink } from "react-router-dom";
 import FeedCardSkeleton from "./FeedCardSkeleton";
 import { formatTimeAgo } from "../../utils/Utils";
 import { SearchIcon } from "../UI/Icons";
+
 const Feeds = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const [showAllCategories, setShowAllCategories] = useState(false);
   const [category, setCategory] = useState("");
   const visibleCategories = showAllCategories
     ? cropsCategories
-    : cropsCategories.slice(0, 5);
+    : cropsCategories.slice(0, 7);
 
-  const handleViewMoreClick = () => {
-    setShowAllCategories(!showAllCategories);
-  };
   useEffect(() => {
     const fetchCurrentUserId = async () => {
       setLoading(true);
@@ -61,96 +61,110 @@ const Feeds = () => {
     }
   };
 
-  const handleLike = async (postId) => {
-    const post = posts.find((p) => p.postId === postId);
-    const isLiked = post.likes.includes(currentUserId);
+  useEffect(() => {
+    const searchTerm = search.trim().toLowerCase();
+    let result = posts;
 
-    const updatedLikes = isLiked
-      ? post.likes.filter((userId) => userId !== currentUserId)
-      : [...post.likes, currentUserId];
-
-    try {
-      await databases.updateDocument(databaseId, postCollection, postId, {
-        likes: updatedLikes,
-      });
-      fetchPosts();
-    } catch (error) {
-      console.error("Failed to update likes:", error);
-      setError("Failed to update likes. Please try again.");
+    if (category) {
+      result = result.filter((post) => post.category === category);
     }
+
+    if (searchTerm) {
+      result = result.filter(
+        (post) =>
+          post.cropname?.toLowerCase().includes(searchTerm) ||
+          post.category?.toLowerCase().includes(searchTerm) ||
+          post.city?.toLowerCase().includes(searchTerm) ||
+          post.state?.toLowerCase().includes(searchTerm) ||
+          post.name?.toLowerCase().includes(searchTerm)
+      );
+    }
+
+    setFilteredPosts(result);
+  }, [search, posts, category]);
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value.toLowerCase());
   };
+
+  const handleViewMoreClick = () => {
+    setShowAllCategories(!showAllCategories);
+  };
+
+  const handleCategoryClick = (catName) => {
+    setCategory(category === catName ? "" : catName);
+    setSearch("");
+  };
+
   return (
-    <div className="flex flex-col bg-primary lg:ml-56 lg:pt-4 py-8">
+    <div className="flex flex-col bg-primary lg:ml-56 py-2 min-h-screen">
       <SideBar />
-      <div className="relative flex w-[80%] h-fit gap-4 mt-1 flex-wrap p-2">
+
+      <div className="flex flex-wrap w-full py-4 gap-2 justify-center rounded-xl">
         {visibleCategories.map((cat, index) => (
-          <div
+          <button
             key={index}
-            onClick={() => setCategory(category === cat.name ? "" : cat.name)}
-            className={`h-fit flex flex-col items-center justify-center bg-accent gap-2 p-2 rounded-xl group cursor-pointer ${
-              category === cat.name ? "" : "bg-white"
+            onClick={() => handleCategoryClick(cat.name)}
+            className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+              category === cat.name
+                ? "bg-accent text-black"
+                : "bg-white text-unfocused hover:bg-gray-200"
             }`}
           >
-            <h2 className="text-black">{cat.name}</h2>
-          </div>
+            {cat.name}
+          </button>
         ))}
-        {cropsCategories.length > 7 && (
-          <div className="pt-2">
-            <button onClick={handleViewMoreClick} className=" text-link ">
-              {showAllCategories ? "View Less" : "View More"}
-            </button>
-          </div>
+        {cropsCategories.length > 5 && (
+          <button onClick={handleViewMoreClick} className="text-link text-sm">
+            {showAllCategories ? "View Less" : "View More"}
+          </button>
         )}
       </div>
-      <div className="absolute right-2 top-8 flex items-center justify-center shadow-md bg-accent w-fit rounded-xl gap-2 px-3 py-1">
-        <SearchIcon />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="md:w-20 max-w-24 placeholder-black bg-accent items-center focus:outline-none focus:w-40 transition-all duration-300"
-        />
+
+      <div className="relative flex items-center justify-center  mb-4">
+        <div className="flex items-center bg-accent w-fit rounded-xl gap-2 px-4 py-2 shadow-md">
+          <SearchIcon />
+          <input
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={handleSearch}
+            className="w-20 placeholder-slate-900 bg-accent focus:outline-none focus:w-40 transition-all duration-300"
+          />
+        </div>
       </div>
-      {error && <p className="error-message">{error}</p>}
-      <div className="flex gap-4 flex-wrap lg:my-10 justify-center">
+
+      <div className="flex flex-wrap justify-center gap-6">
         {loading
           ? Array(4)
               .fill("")
-              .map((_, index) => (
-                <FeedCardSkeleton key={index} indexKey={index} />
-              ))
-          : category
-          ? posts
-              .filter((i) => i.category === category)
-              .map((post) => (
-                <FeedCard
-                  key={post.$id}
-                  {...post}
-                  dash={false}
-                  category={post.category}
-                  cropName={post.cropname}
-                  currentUserId={currentUserId}
-                  date={formatTimeAgo(post.$createdAt)}
-                  handleLike={handleLike}
-                />
-              ))
-          : posts.map((post) => (
+              .map((_, index) => <FeedCardSkeleton key={index} />)
+          : filteredPosts.length > 0
+          ? filteredPosts.map((post) => (
               <FeedCard
                 key={post.$id}
                 {...post}
-                date={formatTimeAgo(post.$createdAt)}
-                category={post.category}
-                cropName={post.cropname}
                 currentUserId={currentUserId}
-                handleLike={handleLike}
+                date={formatTimeAgo(post.$createdAt)}
               />
-            ))}
+            ))
+          : posts.length > 0
+          ? posts.map((post) => (
+              <FeedCard
+                key={post.$id}
+                {...post}
+                currentUserId={currentUserId}
+                date={formatTimeAgo(post.$createdAt)}
+              />
+            ))
+          : !loading && <p className="text-gray-500">No posts found.</p>}
       </div>
 
       <NavLink
         to="/newpost"
-        className="fixed bottom-6 right-6 bg-accent rounded-full w-14 h-14 flex justify-center items-center"
+        className="fixed bottom-6 right-6 bg-accent rounded-full w-14 h-14 flex justify-center items-center shadow-lg"
       >
-        <AddIcon sx={{ color: "black", height: "2rem", width: "2rem" }} />
+        <AddIcon sx={{ color: "#353535e5", height: "2rem", width: "2rem" }} />
       </NavLink>
     </div>
   );
