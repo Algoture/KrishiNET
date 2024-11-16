@@ -8,9 +8,9 @@ export const account = new Account(client);
 export const databases = new Databases(client);
 export const storage = new Storage(client);
 
-export const databaseId = "66e6a4ef0015e4f71d10";
-export const collectionId = "66e6a4fa000bbbcf88d4";
-export const postCollection = "6706b994003028a2d878";
-export const storageBucketId = "670a9efd00256f9547db";
+export const databaseId = import.meta.env.VITE_DB_ID;
+export const collectionId = import.meta.env.VITE_COLLECTION_ID;
+export const postCollection = import.meta.env.VITE_POST_COLLECTION_ID;
+export const storageBucketId = import.meta.env.VITE_STORAGE_BUCKET_ID;
 
 export default client;

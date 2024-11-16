@@ -48,7 +48,7 @@ import {
   collectionId,
   account,
 } from "./utils/appwriteConfig";
-import { cropData, cropsCategories } from "./utils/Data";
+import { cropsCategories } from "./utils/Data";
 import { AuthProvider, useAuth } from "./utils/AuthContext";
 import { getRecommendations } from "./utils/Recommendations";
 export {
@@ -62,7 +62,6 @@ export {
   collectionId,
   postCollection,
   storageBucketId,
-  cropData,
   cropsCategories,
 };
 
