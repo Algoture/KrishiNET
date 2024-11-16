@@ -14,7 +14,7 @@ const OlaMap = () => {
       style:
         "https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard-mr/style.json",
       container: "map",
-      center: [77.61648476788898, 12.931423492103944],
+      center: [75.9064, 17.6599],
       zoom: 15,
     });
   }, []);

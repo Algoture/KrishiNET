@@ -7,6 +7,6 @@ const url = `https://api.olamaps.io/places/v1/autocomplete?input=Taj%20Mahal&api
   import.meta.env.VITE_OLA_API_KEY
 }`;
 
-export const location = `https://api.olamaps.io/places/v1/geocode?address=Ola Electric, 2, Hosur Rd, Koramangala Industrial Layout, Koramangala, Bengaluru, 560095, Karnataka&language=hi&api_key=${
+export const location = `https://api.olamaps.io/places/v1/geocode?address=Solapur, 413004, Maharashtra&language=hi&api_key=${
   import.meta.env.VITE_OLA_API_KEY
 }`;
