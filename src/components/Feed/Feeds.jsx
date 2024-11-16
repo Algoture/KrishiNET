@@ -87,6 +87,25 @@ const Feeds = () => {
     setSearch(event.target.value.toLowerCase());
   };
 
+  const handleLike = async (postId) => {
+    const post = posts.find((p) => p.postId === postId);
+    const isLiked = post.likes.includes(currentUserId);
+
+    const updatedLikes = isLiked
+      ? post.likes.filter((userId) => userId !== currentUserId)
+      : [...post.likes, currentUserId];
+
+    try {
+      await databases.updateDocument(databaseId, postCollection, postId, {
+        likes: updatedLikes,
+      });
+      fetchPosts();
+    } catch (error) {
+      console.error("Failed to update likes:", error);
+      setError("Failed to update likes. Please try again.");
+    }
+  };
+
   const handleViewMoreClick = () => {
     setShowAllCategories(!showAllCategories);
   };
@@ -100,7 +119,7 @@ const Feeds = () => {
     <div className="flex flex-col bg-primary lg:ml-56 py-2 min-h-screen">
       <SideBar />
 
-      <div className="flex flex-wrap w-full py-4 gap-2 justify-center rounded-xl">
+      <div className="flex flex-wrap w-full py-3 gap-2 justify-center rounded-xl">
         {visibleCategories.map((cat, index) => (
           <button
             key={index}
@@ -115,13 +134,17 @@ const Feeds = () => {
           </button>
         ))}
         {cropsCategories.length > 5 && (
-          <button onClick={handleViewMoreClick} className="text-link text-sm">
+          <button
+            onClick={handleViewMoreClick}
+            className="bg-white text-link rounded-lg px-2 text-sm"
+          >
             {showAllCategories ? "View Less" : "View More"}
           </button>
         )}
       </div>
 
-      <div className="relative flex items-center justify-center  mb-4">
+      {/* Search  */}
+      <div className="relative flex items-center justify-center mb-4">
         <div className="flex items-center bg-accent w-fit rounded-xl gap-2 px-4 py-2 shadow-md">
           <SearchIcon />
           <input
@@ -129,7 +152,7 @@ const Feeds = () => {
             placeholder="Search..."
             value={search}
             onChange={handleSearch}
-            className="w-20 placeholder-slate-900 bg-accent focus:outline-none focus:w-40 transition-all duration-300"
+            className="w-24 placeholder-slate-900 bg-accent focus:outline-none focus:w-40 transition-all duration-300"
           />
         </div>
       </div>
@@ -146,6 +169,7 @@ const Feeds = () => {
                 {...post}
                 currentUserId={currentUserId}
                 date={formatTimeAgo(post.$createdAt)}
+                handleLike={handleLike}
               />
             ))
           : posts.length > 0
