@@ -10,15 +10,15 @@ export default function LandingPage() {
         Krishi<span className="text-accent">NET</span>
       </NavLink>
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 ">
-        <h1 className="text-center text-base/7 font-semibold">
+        <h1 className="text-center text-base/7 text-gray-700 font-semibold">
           Connecting Farmers & Buyers Seamlessly
         </h1>
-        <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-5xl font-medium tracking-tight ">
+        <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-4xl  font-medium tracking-tight text-gray-700">
           Empowering{" "}
-          <span className="text-accent font-Sat lg:text-8xl sm:text-6xl tracking-tight">
+          <span className="text-accent font-Sat lg:text-8xl text-6xl tracking-tight">
             Agriculture
           </span>{" "}
-          through Technology
+          through technology
         </p>
         <div className="w-full flex justify-center mt-12">
           <Btn to="/login" text="Get Started" />
