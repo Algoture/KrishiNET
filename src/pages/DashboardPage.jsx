@@ -11,7 +11,7 @@ import {
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const MyChart = () => {
+const DashboardPage = () => {
   useEffect(() => {
     const ctx = document.getElementById("myChart").getContext("2d");
 
