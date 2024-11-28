@@ -6,7 +6,7 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 } from "chart.js";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -23,26 +23,26 @@ const MyChart = () => {
           {
             label: "Sales",
             data: [50, 75, 100],
-            backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-          }
-        ]
+            backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+          },
+        ],
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: "top"
+            position: "top",
           },
           title: {
             display: true,
-            text: "Monthly Sales"
-          }
-        }
-      }
+            text: "Monthly Sales",
+          },
+        },
+      },
     });
   }, []);
 
   return <canvas id="myChart"></canvas>;
 };
 
-export default MyChart;
+export default DashboardPage;
