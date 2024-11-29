@@ -4,6 +4,7 @@ import { useAuth, PersonIcon } from "../../Index";
 import ChatIcon from "@mui/icons-material/Chat";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
+import CreateIcon from "@mui/icons-material/Create";
 import MapIcon from "@mui/icons-material/Map";
 import ArchitectureIcon from "@mui/icons-material/Architecture";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -89,6 +90,22 @@ const SideBar = () => {
                   <MapIcon />
                 </span>
                 Map
+              </div>
+            </NavLink>
+
+            <NavLink
+              to="/newpost"
+              className={({ isActive }) =>
+                `text-sm font-medium hover:text-gray-800 ${
+                  isActive ? "bg-accent text-black" : "text-unfocused"
+                }`
+              }
+            >
+              <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
+                  <CreateIcon />
+                </span>
+                Create Contract
               </div>
             </NavLink>
 

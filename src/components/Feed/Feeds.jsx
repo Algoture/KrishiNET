@@ -183,13 +183,6 @@ const Feeds = () => {
             ))
           : !loading && <p className="text-gray-500">No posts found.</p>}
       </div>
-
-      <NavLink
-        to="/newpost"
-        className="fixed bottom-6 right-6 bg-accent rounded-full w-14 h-14 flex justify-center items-center shadow-lg"
-      >
-        <AddIcon sx={{ color: "#353535e5", height: "2rem", width: "2rem" }} />
-      </NavLink>
     </div>
   );
 };
