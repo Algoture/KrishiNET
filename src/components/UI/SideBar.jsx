@@ -55,16 +55,6 @@ const SideBar = () => {
                 Dashboard
               </div>
             </NavLink>
-
-            <li className="cursor-pointer">
-              <div className="flex text-unfocused flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 hover:text-gray-800">
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
-                  <ChatIcon />
-                </span>
-                <span className="text-sm font-medium">Chat</span>
-              </div>
-            </li>
-
             <li className="cursor-pointer">
               <div className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-unfocused hover:text-gray-800">
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
