@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth, PersonIcon } from "../../Index";
-import ChatIcon from "@mui/icons-material/Chat";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CreateIcon from "@mui/icons-material/Create";
@@ -95,7 +94,7 @@ const SideBar = () => {
                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <CreateIcon />
                 </span>
-                Create Contract
+                Create Post
               </div>
             </NavLink>
 
