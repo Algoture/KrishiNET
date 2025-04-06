@@ -70,10 +70,12 @@ const FeedPostForm = () => {
     setLoading(true);
     if (!userData) {
       setError("User data not available. Please try again.");
+      setLoading(false);
       return;
     }
     if (!file) {
       setError("Upload an Image");
+      setLoading(false);
       return;
     }
     const postId = ID.unique();
@@ -90,8 +92,6 @@ const FeedPostForm = () => {
       description: description,
       category: category,
     };
-    console.log(user.$id)
-    console.log(postDetails.userId)
     try {
       let fileUrl = "";
       if (file) {
