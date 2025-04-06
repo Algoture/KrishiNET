@@ -72,6 +72,10 @@ const FeedPostForm = () => {
       setError("User data not available. Please try again.");
       return;
     }
+    if (!file) {
+      setError("Upload an Image");
+      return;
+    }
     const postId = ID.unique();
     const postDetails = {
       userId: user.$id,
